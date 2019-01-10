@@ -1,78 +1,65 @@
 ---
 title: Hanyuu's tech blog.
-date: 2018-07-08 00:00:00
+date: 2020-01-01 00:00:00
 tags: techlog
 ---
-# 该板块迁移尚未完成，此页面所有内链均处于失效状态，请移步[原板块](https://hanyuufurude.github.io/TechBlog)。
+# 该板块迁移尚未完成，此页面部分内链均处于失效状态，请移步[原板块](https://hanyuufurude.github.io/TechBlog)。
 [![](https://img.shields.io/github/downloads/atom/atom/total.svg)](https://github.com/HanyuuFurude/TechBlog/archive/master.zip)
 [![](https://img.shields.io/github/issues/HanyuuFurude/TechBlog.svg)](https://github.com/HanyuuFurude/TechBlog/issues)
 [![](https://img.shields.io/github/license/HanyuuFurude/TechBlog.svg)](https://github.com/HanyuuFurude/TechBlog/blob/master/LICENSE)
 [![GitHub stars](https://img.shields.io/github/stars/HanyuuFurude/TechBlog.svg)](https://github.com/HanyuuFurude/TechBlog/stargazers)
 
-![](https://img.shields.io/badge/language-Python_3.6-blue.svg)
-![](https://img.shields.io/badge/package-Tensorflow-blue.svg)
-![](https://img.shields.io/badge/package-OpenCV_python-blue.svg)
 ## Introduction
 ***
 > - 工具和其他教程[链接](https://hanyuufurude.github.io/)
 > - 一些常用工具/语言/技术的小结。
 > - Tensorflow 从入门到调参（x）
-> - markdown中可能存在Latex公式……Github预览暂时不支持该类型公式的显示……所以请自行使用合适的预览/阅读工具。
+> - ~~markdown中可能存在Latex公式……Github预览暂时不支持该类型公式的显示……所以请自行使用合适的预览/阅读工具。~~
+> - 由于hexo上的LaTeX渲染引擎还有点问题所以部分LaTeX公式（主要是涉及上下位置调动的）可能导致渲染问题。（当你发现(Latex)这个公式($\LaTeX$)不能正常渲染时，你已经躺枪了.jpg）
 
 ##  [数据结构小结](Review/Review.md)
 ## Note link
 ***
 ### Tensorflow
-| Created Date | Updated Date | Content                                                                    | Details                                                                                                                                    |
-| :----------- | :----------- | :------------------------------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------- |
-| 2018.09.14   | 2018.09.19   | [基本操作](studyNotes/tensorflow/Leadin/Leadin.md)                         | 一些基本的操作符备忘                                                                                                                       |
-| 2018.09.18   |              | [数据类型](studyNotes/tensorflow/Tensor/Tensor.md)                         | Tensor的数据类型和特殊Tensor类型                                                                                                           |
-| 2018.09.18   |              | [计算设备管理](studyNotes/tensorflow/DeviceManage/DeviceManage.md)         | 一些关于设备管理的选项                                                                                                                     |
-| 2018.09.18   | 2018.09.20   | [常见问题](studyNotes/tensorflow/CommomQuestion/CommomQuestion.md)         | 那些踩过的坑 (；′⌒`)<br><font color=red>**▲若您正在使用VSCode作为您的编辑器和调试器，请立即查看此条目，这可能会帮助您绕过一些问题**</font> |
-| 2018.09.19   |              | [MNIST程序示例](studyNotes/tensorflow/Example/Leadin.py)                   | MNIST整体入门程序                                                                                                                          |
-| 2018.09.22   | 2018.09.29   | [MNIST with conv & pool](studyNotes/tensorflow/Example/MNIST_Conv&Pool.md) | 是带卷积和池化层的MNIST啦                                                                                                                  |
+* [基本操作](studyNotes/tensorflow/Leadin/Leadin.md)
+* [数据类型](studyNotes/tensorflow/Tensor/Tensor.md)
+* [计算设备管理](studyNotes/tensorflow/DeviceManage/DeviceManage.md)
+* [常见问题](studyNotes/tensorflow/CommomQuestion/CommomQuestion.md)
+  * <br><font color=red>**▲若您正在使用VSCode作为您的编辑器和调试器，请查看此条目，这可能会帮助您绕过一些问题**</font>
+* [MNIST程序示例](studyNotes/tensorflow/Example/Leadin.py)
+* [MNIST with conv & pool](studyNotes/tensorflow/Example/MNIST_Conv&Pool.md)
+
 ### OpenCV [纯粹就是做项目时候自己的爬坑记录]
-| Created Date | Updated Date | Content                                                                                                                                                             | Details                                               |
-| ------------ | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------- |
-| 2018.09.29   |              | [OpenCV安装传送门](https://docs.opencv.org/3.0-beta/doc/py_tutorials/py_setup/py_table_of_contents_setup/py_table_of_contents_setup.html#py-table-of-content-setup) | 还真有第二条orz(还悄咪咪的和1L换了个位置，没人发现吧) |
-| 2018.09.29   | 2018.10.02   | [基本函数参考](studyNotes/OpenCV/OpenCVFunctionRef.md)                                                                                                              | 应该就这么一条记录,也懒得取名了（我这是在哪？）       |
-| 2018.10.03   |              | [基本操作参考](studyNotes/OpenCV/OpenCVBasicOperations.md)                                                                                                          | 再打一次1L的脸;P(唉，1L呢)                            |
-| 2018.10.03   |              | [常见问题](studyNotes/OpenCV/OpenCVCommomQuestion.md)                                                                                                               | 没有经历过踩坑是不会成长desu                          |
-
-
+* [OpenCV安装指引](https://docs.opencv.org/3.0-beta/doc/py_tutorials/py_setup/py_table_of_contents_setup/py_table_of_contents_setup.html#py-table-of-content-setup)
+*  [基本函数参考](../../../../2018/10/02/OpenCV/OpenCVFunctionRef/)
+*  [基本操作参考](../../../../2018/10/02/OpenCV/OpenCVBasicOperations/)
+*  [常见问题](../../../../2018/09/20/OpenCV/OpenCVCommomQuestion/)
 
 ### Python
-| Created Date | Updated Date | Content                                                                       | Details                      |
-| :----------- | :----------- | :---------------------------------------------------------------------------- | :--------------------------- |
-| 2018.10.07   |              | [PythonFunctionRef](studyNotes/python/PythonFunctionRef/PythonFunctionRef.md) | 还是写一个吧2333             |
-| 2018.10.03   |              | [Python 3.6](https://docs.python.org/3.6/)                                    | 官方文档                     |
-| 2018.10.09   |              | [正则表达式入门](http://www.runoob.com/python3/python3-reg-expressions.html)  | 学一学还是有必要的哈(●ˇ∀ˇ●)  |
-| 2018.10.09   |              | [Requests爬虫入门](https://blog.csdn.net/gyq1998/article/details/78583841)    | 爬虫……也是要爬一爬的(ง •_•)ง |
-| 2018.12.11   |              | [xlrd](studyNotes/python/xlrd.md)                                             | 处理Excel文档                |
-### Deep learning
-| Created Date | Updated Date | Content                                                                                       | Details                                      |
-| :----------- | :----------- | :-------------------------------------------------------------------------------------------- | :------------------------------------------- |
-| 2018.11.20   | 2018.12.03   | [terminology](studyNotes/deeplearning/terminology.md)                                         | 术语表                                       |
-| 2018.10.03   |              | [deeplearningbook.org](http://www.deeplearningbook.org/)                                      | 这个不在GFW内                                |
-| 2018.10.03   |              | [deeplearningbook-chinese](https://github.com/exacity/deeplearningbook-chinese)               | 但是有热心大佬在GFW内翻译了                  |
-| 2018.10.03   |              | [李弘毅教授的Deep Learning课程页](https://hanyuufurude.github.io/DeepLearing.html)            | 本人整理，若您发现有更新请务必联系我，谢谢。 |
-| 2018.10.03   |              | [李彦宏的deep learning教程[网易云](http://mooc.study.163.com/smartSpec/detail/1001319001.htm) | 吃我安利（就是没作业，土豪请走coursera）     |
+* [PythonFunctionRef](studyNotes/python/PythonFunctionRef/PythonFunctionRef.md)
+* [Python 3.6](https://docs.python.org/3.6/)
+* [正则表达式入门](http://www.runoob.com/python3/python3-reg-expressions.html)
+* [Requests python 爬虫入门](https://blog.csdn.net/gyq1998/article/details/78583841)
+* [xlrd python Excel文档处理](studyNotes/python/xlrd.md)
 
+### Deep learning
+* [terminology](studyNotes/deeplearning/terminology.md)
+* [deeplearningbook.org](http://www.deeplearningbook.org/)
+* [deeplearningbook-chinese](https://github.com/exacity/deeplearningbook-chinese)
+* [李彦宏的deep learning教程\[网易云\]](http://mooc.study.163.com/smartSpec/detail/1001319001.htm
 
 ### Others
-| Created Date | Updated Date| Content| Details|
-| :- | :- | :- | :- |
-| 2018.11.29 || [markdown-Latex公式快速查阅](studyNotes/Others/markdownLatex.png) | 写文档也是很重要的. |
-| 2018.12.18 || [简单字符串匹配算法](studyNotes/Others/kmp.md) | |
-| 2018.12.18 |      | [Windows更新缓存](studyNotes/Others/windowsUpdateCacheClear.md) |      |
-|2018.12.18||[重置 Windows 更新组件(ms官网链接)](https://support.microsoft.com/zh-cn/help/971058/how-do-i-reset-windows-update-components)||
+* [markdown-Latex公式快速查阅](studyNotes/Others/markdownLatex.png)
+* [Windows更新缓存](studyNotes/Others/windowsUpdateCacheClear.md)
+* [重置 Windows 更新组件(ms官网链接)](https://support.microsoft.com/zh-cn/help/971058/how-do-i-reset-windows-update-components)
 
 
-
-# Log
+# Log(吐槽的日常)
 ***
 # 2019
 ## Jan.
+### 10
+> 专业课通识课两爆炸、两爆炸。
 ### 09
 > 新玩具（Hexo）真好玩……又拿了两个域名……开始造作复习了.jpg
 > 寒假一定肝一波。
