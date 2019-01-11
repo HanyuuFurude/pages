@@ -31,9 +31,9 @@ tags: techlog
 
 ### OpenCV [纯粹就是做项目时候自己的爬坑记录]
 * [OpenCV安装指引](https://docs.opencv.org/3.0-beta/doc/py_tutorials/py_setup/py_table_of_contents_setup/py_table_of_contents_setup.html#py-table-of-content-setup)
-*  [基本函数参考](../../../../2018/10/02/OpenCV/OpenCVFunctionRef/)
-*  [基本操作参考](../../../../2018/10/02/OpenCV/OpenCVBasicOperations/)
-*  [常见问题](../../../../2018/09/20/OpenCV/OpenCVCommomQuestion/)
+*  [基本函数参考](/2018/10/02/OpenCV/OpenCVFunctionRef/)
+*  [基本操作参考](/2018/10/02/OpenCV/OpenCVBasicOperations/)
+*  [常见问题](/2018/09/20/OpenCV/OpenCVCommomQuestion/)
 
 ### Python
 * [PythonFunctionRef](studyNotes/python/PythonFunctionRef/PythonFunctionRef.md)
@@ -49,8 +49,8 @@ tags: techlog
 * [李彦宏的deep learning教程\[网易云\]](http://mooc.study.163.com/smartSpec/detail/1001319001.htm
 
 ### Others
-* [markdown-Latex公式快速查阅](studyNotes/Others/markdownLatex.png)
-* [Windows更新缓存](studyNotes/Others/windowsUpdateCacheClear.md)
+* [markdown-Latex公式快速查阅](/2018/12/01/Others/Latex)
+* [Windows更新缓存](/2018/10/20/Others/windowsUpdateCacheClear/)
 * [重置 Windows 更新组件(ms官网链接)](https://support.microsoft.com/zh-cn/help/971058/how-do-i-reset-windows-update-components)
 
 
@@ -105,4 +105,5 @@ tags: techlog
 ### 14
 > Start log.
 
-![Hanyuu](studyNotes/rm.png)
+![Hanyuu](https://raw.githubusercontent.com/HanyuuFurude/TechBlog/master/studyNotes/rm.png
+)
