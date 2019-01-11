@@ -33,4 +33,101 @@ void|-|-|Void
 * Abstraction
 * Inheritance
 * Polymorphism
-*
+* `finalilze();`
+* `Abstraction`
+* `interface`
+* `implements`
+## Chapter 03 Exception
+## Chapter 04 Java I/O
+``` java
+	File file = new File("filePath/fileName");
+	System.out.println(file.exists());
+	System.out.println(file.isFile());
+	File[] files = file.listFlies(filter);
+	System.out.println(files.length);
+	Arrays.sort(files,comparator);
+```
+* Stream
+  * Byte stream
+    * java.io.InputStream
+      * `int read()	//read a byte`
+    * java.io.OutputStream
+      * `void write(int b)`
+      * `void write(byte[] b)`
+	* FileInputStream, FileOutputStream
+	* PipedInputStream, PipedOutputStream
+	* ByteArrayInputStream, ByteArrayOutputStream
+	* BufferedInputStream, BufferedOutputStream
+	* ObjectInputStreamm ObjectOutputStream
+  * Character stream
+    * java.io.Reader
+      * `int read()	//read a char`
+    * java.io.Writer
+      * `void write(int b)`
+      * `void write(char[] c)`
+  * FileReader, FileWriter
+  * PipedReader, PipedWriter
+  * BufferedReader, BufferedWriter
+  * InpputStreamReader, OutputStreamWriter
+* FileInputStream
+  * ``` java
+  	FileInputStream fis = FileInputStream(file);
+	  int  res = fis.read();	//IOException
+	  fis.available();	//是否可用
+	  fis.close();
+	```
+* FileOutputStream
+  * ``` java
+  	file.createNewFile()
+	fos.write(2);
+	fos.write('a');
+	```
+* FileReader
+* FileWriter
+  * ```java
+    FileWriter w = new FileWriter(new File("a.txt"),true);
+	w.write("Hanyuu".toCharArray());
+	w.flush();
+  	```
+* InputStreamReader
+* OutputStreamReader
+* PrintStream
+* DataInputStream, DataOutputStream
+* PrintWriter
+* Scanner
+  * java.util.Scanner
+* BufferedInputStream, BufferedOutputStream
+  * `BufferedInputStream bufferedInput = new BufferedInputStream(new FileInputStream(filename));`
+  * ``` java
+	public void testBufferedInput() {
+    try {
+        /**
+         * 建立输入流 BufferedInputStream, 缓冲区大小为8
+         * buffer.txt内容为
+         * abcdefghij
+         */
+        InputStream in = new BufferedInputStream(new FileInputStream(new File("buff.txt")), 8);
+        /*从字节流中读取5个字节*/
+        byte [] tmp = new byte[5];
+        in.read(tmp, 0, 5);
+        System.out.println("字节流的前5个字节为: " + new String(tmp));
+        /*标记测试*/
+        in.mark(6);
+        /*读取5个字节*/
+        in.read(tmp, 0, 5);
+        System.out.println("字节流中第6到10个字节为: " +  new String(tmp));
+        /*reset*/
+        in.reset();
+        System.out.printf("reset后读取的第一个字节为: %c" , in.read());
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+	}
+	```
+  * InputStreamReader
+  * OutputStreamReader
+  * System.in
+  * System.out
+  * System.err
+  * DataOutputStream
+  * DataInputStream
