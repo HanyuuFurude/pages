@@ -21,10 +21,10 @@ tags: techlog
 ## Note link
 ***
 ### Tensorflow
-* [基本操作](studyNotes/tensorflow/Leadin/Leadin.md)
-* [数据类型](studyNotes/tensorflow/Tensor/Tensor.md)
-* [计算设备管理](studyNotes/tensorflow/DeviceManage/DeviceManage.md)
-* [常见问题](studyNotes/tensorflow/CommomQuestion/CommomQuestion.md)
+* [基本操作](/tensorflow/Leadin/Leadin)
+* [数据类型](/tensorflow/Tensor/TensorData)
+* [计算设备管理](/tensorflow/DeviceManage/DeviceManage)
+* [常见问题](/tensorflow/CommomQuestion/CommomQuestion)
   * <br><font color=red>**▲若您正在使用VSCode作为您的编辑器和调试器，请查看此条目，这可能会帮助您绕过一些问题**</font>
 * [MNIST程序示例](studyNotes/tensorflow/Example/Leadin.py)
 * [MNIST with conv & pool](studyNotes/tensorflow/Example/MNIST_Conv&Pool.md)
@@ -36,14 +36,14 @@ tags: techlog
 *  [常见问题](/OpenCV/OpenCVCommomQuestion/)
 
 ### Python
-* [PythonFunctionRef](studyNotes/python/PythonFunctionRef/PythonFunctionRef.md)
+* [PythonFunctionRef](/python/PythonFunctionRef/PythonFunctionRef)
 * [Python 3.6](https://docs.python.org/3.6/)
 * [正则表达式入门](http://www.runoob.com/python3/python3-reg-expressions.html)
 * [Requests python 爬虫入门](https://blog.csdn.net/gyq1998/article/details/78583841)
-* [xlrd python Excel文档处理](studyNotes/python/xlrd.md)
+* [xlrd python Excel文档处理](/python/xlrd)
 
 ### Deep learning
-* [terminology](studyNotes/deeplearning/terminology.md)
+* [terminology]( /deeplearning/terminology)
 * [deeplearningbook.org](http://www.deeplearningbook.org/)
 * [deeplearningbook-chinese](https://github.com/exacity/deeplearningbook-chinese)
 * [李彦宏的deep learning教程\[网易云\]](http://mooc.study.163.com/smartSpec/detail/1001319001.htm
@@ -58,6 +58,8 @@ tags: techlog
 ***
 # 2019
 ## Jan.
+### 12
+> Java这突如其来的凉意是怎么回事.jpg
 ### 10
 > 专业课通识课两爆炸、两爆炸。
 ### 09
@@ -66,14 +68,11 @@ tags: techlog
 ### 03
 > 经过断断续续的尝试和hs巨巨的帮助终于能用python投递邮件了（开心的一匹）
 > 什么？复习？考试？完球了.jpg
-
 ### 02
 > 在复习的闲暇时光慢慢尝试爬虫.jpg
 > （暂时没精力引出链接写教程了，想看代码的直接顺着文件夹就能找着（ps:我就是想偷下懒嘛~））
-
 ### 01
 > Happy new year~
-
 # 2018
 ## Dec.
 ### 18
