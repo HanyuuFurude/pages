@@ -27,6 +27,18 @@ void|-|-|Void
 * Object
 * Constract and Initialization
 * Access Control
+* Java修饰符
+  * 访问控制修饰符 : default, public , protected, private
+  * 非访问控制修饰符 : final, abstract, static, synchronized
+* 继承
+  * 在Java中，一个类可以由其他类派生。如果你要创建一个类，而且已经存在一个类具有你所需要的属性或方法，那么你可以将新创建的类继承该类。
+  * 利用继承的方法，可以重用已存在类的方法和属性，而不用重写这些代码。被继承的类称为超类（super class），派生类称为子类（subclass）。
+  * Java 源程序与编译型运行区别
+  ![](https://www.runoob.com/wp-content/uploads/2013/12/ZSSDMld.png)
+
+接口
+在Java中，接口可理解为对象间相互通信的协议。接口在继承中扮演着很重要的角色。
+接口只定义派生要用到的方法，但是方法的具体实现完全取决于派生类。
 ## Chapter 02 OOP
 * Object
 * Class
