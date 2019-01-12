@@ -316,7 +316,7 @@ void|-|-|Void
   * `UPDATE tableA SET date = 'Jan-01-2019' WEHERE name = 'Hanyuu'`
 * Delete
   * `DELETE FROM tableA WHERE name = 'Inari'`
-  ###### 你知道为什么SQL语句大家都选择大写嘛？（hhh）
+  > 你知道为什么SQL语句大家都选择大写嘛？（hhh）
   ``` java
   package SQL;
   import java.sql.*;
@@ -428,7 +428,7 @@ public class getLocal {
 				}
 			}
 			for (Iterator iter=allIP.iterator();((Iterator) iter).hasNext();){
-				System.out.println(iter.next().toString());
+				System.out.println(ier.next().toString());
 			}
 		} catch (UnknownHostException e) {
 			e.printStackTrace();
@@ -437,4 +437,87 @@ public class getLocal {
 	}
 }
 
+```
+* Constructor localhost InetAddress
+``` java
+InetAddress addr = InetAddress.getByName(null);
+InetAddress addr = InetAddress.getByName("127.0.0.1");
+InetAddress addr = InetAddress.getByName("localhost");
+InetAddress addr = InetAddress.getLocalHost();
+byte[] IP = {(byte)127,(byte)0,(byte)0,(byte)1};
+```
+* Web server
+* FTP server
+* Mail server
+* Port 1-1024 is occupied by system
+* client
+``` java
+//构建客户端socket
+Socket client = new Socket("hanyuu.ml",8080);
+//构建客户端socket（通过InetAddress）
+InetAddress address = InetAddress.getByName("Hanyuu.ml");
+Socket client = new Socket(address,8080);
+InputStream is = socket.getInputStream();
+OutputStream os = socket.getOutputStream();
+is.close();
+os.close();
+```
+Example
+``` java
+Socket socket = new Socket(ip,8008);
+BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()),true);
+out.print("Hi");
+Thread.sleep(1000);
+out.println("Hello");
+socket.close();
+```
+* server
+``` java
+//创建服务端的ServerSocket监听客户请求
+ServerSocket server = new ServerSocket(8080);
+//客户端阻塞，等待连接
+Socket serverSocket = server.accept();
+```
+Example
+```java
+try{
+  ButteredReader in =new BufferedReader(new InputStreamReader(socket.getInputStream()));
+  PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()),true);
+  while(true){
+    String str = in.readLine();
+    if (str!=null && str.equals("Hi")) out.println("Hi, here is server.");
+  }catch(Exception e){
+    e.printStackTrace();
+  }finally{
+    socket.close();
+    server.close();
+  }
+}
+```
+* TCP
+* UDP
+* read a web page
+``` java
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.URL;
+import java.net.URLConnection;
+
+public class conn {
+	public static void main(String[] args) {
+		try{
+			URL coseURL = new URL("http://cose.seu.edu.cn");
+			URLConnection connection =coseURL.openConnection();
+			BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+			String html = in.readLine();
+			while(html!=null){
+				System.out.println(html);
+				html=in.readLine();
+			}
+
+		}catch (Exception e){
+
+		}
+	}
+}
 ```

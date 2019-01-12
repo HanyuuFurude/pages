@@ -3,11 +3,15 @@ title: Hanyuu's tech blog.
 date: 2020-01-01 00:00:00
 tags: techlog
 ---
-# 该板块迁移尚未完成，此页面部分内链均处于失效状态，请移步[原板块](https://hanyuufurude.github.io/TechBlog)。
+> 该板块迁移尚未完成，此页面部分内链均处于失效状态，请移步[TechBlog](https://hanyuufurude.github.io/TechBlog)。\
+> 原版导航式主页也将与二月份之前迁移，现在您还可以访问[Inari.ml](Inari.ml)访问原主页
+
 [![](https://img.shields.io/github/downloads/atom/atom/total.svg)](https://github.com/HanyuuFurude/TechBlog/archive/master.zip)
 [![](https://img.shields.io/github/issues/HanyuuFurude/TechBlog.svg)](https://github.com/HanyuuFurude/TechBlog/issues)
 [![](https://img.shields.io/github/license/HanyuuFurude/TechBlog.svg)](https://github.com/HanyuuFurude/TechBlog/blob/master/LICENSE)
 [![GitHub stars](https://img.shields.io/github/stars/HanyuuFurude/TechBlog.svg)](https://github.com/HanyuuFurude/TechBlog/stargazers)
+
+
 
 ## Introduction
 ***
