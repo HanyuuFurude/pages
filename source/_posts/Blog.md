@@ -14,7 +14,7 @@ tags: techlog
 
 
 ## Introduction
-> - 工具和其他教程[链接](https://hanyuufurude.github.io/)
+> - 工具和其他教程[链接](https://inariecho.github.io/)
 > - 一些常用工具/语言/技术的小结。
 > - Tensorflow 从入门到调参（x）
 > - ~~markdown中可能存在Latex公式……Github预览暂时不支持该类型公式的显示……所以请自行使用合适的预览/阅读工具。~~
@@ -23,13 +23,9 @@ tags: techlog
 ## Contents
 ***
 ### Tensorflow
-* [基本操作](/tensorflow/Leadin/Leadin)
-* [数据类型](/tensorflow/Tensor/TensorData)
-* [计算设备管理](/tensorflow/DeviceManage/DeviceManage)
-* [常见问题](/tensorflow/CommomQuestion/CommomQuestion)
-  * <br><font color=red>**▲若您正在使用VSCode作为您的编辑器和调试器，请查看此条目，这可能会帮助您绕过一些问题**</font>
-* [MNIST程序示例](studyNotes/tensorflow/Example/Leadin.py)
-* [MNIST with conv & pool](studyNotes/tensorflow/Example/MNIST_Conv&Pool.md)
+* [快速查阅](/Tensorflow/TensorflowRef)
+* [MNIST粗暴入门](/Tensorflow/TensorflowLeadin)
+* [MNIST卷积和池化](/Tensorflow/TensorflowConvandPool)
 
 ### OpenCV [纯粹就是做项目时候自己的爬坑记录]
 * [OpenCV安装指引](https://docs.opencv.org/3.0-beta/doc/py_tutorials/py_setup/py_table_of_contents_setup/py_table_of_contents_setup.html#py-table-of-content-setup)
