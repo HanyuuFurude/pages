@@ -1,5 +1,5 @@
 ---
-title: Tensorflow入坑试水
+title: Tensorflow一些设置
 date: 2019-01-30 10:49:28
 tags:
 ---
