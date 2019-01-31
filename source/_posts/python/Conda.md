@@ -14,7 +14,7 @@ tags: Python
 * Powershell添加conda/anaconda支持：
   1. 安装库：
       ``` powershell
-      conda install -n root -c pscondaenvs pscondaenvs 
+      conda install -n root -c pscondaenvs pscondaenvs
       ```
 
     > 如果因为某些原因无法通过上述方案安装……请手动下载安装
@@ -26,7 +26,7 @@ tags: Python
 
     ``` powershell
     PS C:\Hanyuu> Set-ExecutionPolicy RemoteSigned
-     
+
     执行策略更改
     执行策略可帮助你防止执行不信任的脚本。更改执行策略可能会产生安全风险，如http://go.microsoft.com/fwlink/?LinkID=135170 中的 about_Execution_Policies帮助主题所述。是否要更改执行策略?
     [Y] 是(Y)  [A] 全是(A)  [N] 否(N)  [L] 全否(L)  [S] 暂停(S)  [?] 帮助(默认值为“N”):Y
@@ -34,7 +34,7 @@ tags: Python
 
   3. 此时可以正常使用Powershell切换到特定环境
 
-  ``` powershell 
+  ``` powershell
   activate [EnvironmentName]
   ```
 
@@ -50,12 +50,12 @@ tags: Python
     1.  Install ipykernel
 
         ```powershell
-        conda install ipykernel 
+        conda install ipykernel
         ```
     2.  Create kernel files in virtual environment
 
         ```powershell
-        conda install -n [EnvironmentName] ipykernel 
+        conda install -n [EnvironmentName] ipykernel
         ```
     3.  activate virtual environment
 
@@ -82,3 +82,5 @@ tags: Python
     ``` powershell
     jupyter kernelspec remote [EnvironmentName]
     ```
+## Jupyter 自动补全和主题修改
+[link](https://www.cnblogs.com/qiuxirufeng/p/9609031.html)

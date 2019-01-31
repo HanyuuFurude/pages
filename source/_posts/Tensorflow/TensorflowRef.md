@@ -57,6 +57,7 @@ with tf.device('/gpu:1'):
 * 查询显卡算力[地址](https://developer.nvidia.com/cuda-gpus#collapseOne)
 * 若要使用CUDA加速计算，请确保您已安装[CUDA Toolkit](https://developer.nvidia.com/cuda-downloads),并且按需下载并配置您需要的[Deep learning frameworks](https://developer.nvidia.com/deep-learning-software),目前，我们用到的frameworks有[cuDNN](https://developer.nvidia.com/cudnn),请确保您的framework和CUDA版本配套，否则**无法使用**。
 
+## 使用交互式环境
 ## 查看Tensor详细情况
 ``` py
     #使用CPU进行计算
