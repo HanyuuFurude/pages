@@ -11,10 +11,40 @@ tags:
 |[tf.placeholder](https://www.tensorflow.org/api_docs/python/tf/placeholder?hl=zh-CN)|Tensor占位符|
 |[tf.SparseTensor](https://www.tensorflow.org/api_docs/python/tf/SparseTensor?hl=zh-CN)|Tensor稀疏张量
 ## 设备管理
+### 查看设备列表
+``` py
+import os
+from tensorflow.python.client import device_lib
+os.environ["TF_CPP_MIN_LOG_LEVEL"] = "99"
+print(device_lib.list_local_devices())
+```
+样例输出：
+``` py
+[name: "/device:CPU:0"
+device_type: "CPU"
+memory_limit: 268435456
+locality {
+}
+incarnation: 16586473374130916263
+, name: "/device:GPU:0"
+device_type: "GPU"
+memory_limit: 1418693427
+locality {
+  bus_id: 1
+  links {
+  }
+}
+incarnation: 9802250829700710596
+physical_device_desc: "device: 0, name: GeForce GTX 1050 Ti, pci bus id: 0000:01:00.0, compute capability: 6.1"
+]
+```
+### 指定某设备进行计算
 ``` py
 import tensorflow as tf
 #选择设备 CPU->CPU:0
 with tf.device('/gpu:1'):
+    # '/gpu:0'
+    # '/cpu:0'
     v1 = tf.constant([1.0, 2.0, 3.0], shape=[3], name='v1')
     v2 = tf.constant([1.0, 2.0, 3.0], shape=[3], name='v2')
     sumV12 = v1 + v2
@@ -22,12 +52,29 @@ with tf.device('/gpu:1'):
     with tf.Session(config=tf.ConfigProto(log_device_placement=True)) as sess:
         print sess.run(sumV12)
 ```
-## 使用GPU计算
+### 使用GPU计算要求
 若要使用Tensorflow-gpu，请检查您是否有**算力大于3的NVIDIA显卡**。
 * 查询显卡算力[地址](https://developer.nvidia.com/cuda-gpus#collapseOne)
 * 若要使用CUDA加速计算，请确保您已安装[CUDA Toolkit](https://developer.nvidia.com/cuda-downloads),并且按需下载并配置您需要的[Deep learning frameworks](https://developer.nvidia.com/deep-learning-software),目前，我们用到的frameworks有[cuDNN](https://developer.nvidia.com/cudnn),请确保您的framework和CUDA版本配套，否则**无法使用**。
 
-
+## 查看Tensor详细情况
+``` py
+    #使用CPU进行计算
+    with tf.device("/cpu:0"):
+        a = tf.constant([1.0,2.0,3.0,4.0,5.0,6.0],shape=[2,3])
+        b = tf.constant([1.0,2.0,3.0,4.0,5.0,6.0],shape=[3,2])
+        c = tf.matmul(a,b)
+        #查看计算时硬件的使用情况
+        sess = tf.Session(config=tf.ConfigProto(log_device_placement=True))
+        print(sess.run(c))
+#设置运行时候的参数
+        options = tf.RunOptions(output_partition_graphs=True)
+        metadata = tf.RunMetadata()
+        c_val = sess.run(c,options=options,run_metadata=metadata)
+        print(metadata.partition_graphs)
+        #关闭session
+        sess.close()
+```
 ## ImportError: No module named input_data
 	由于版本更新，Tensorflow已经不建议再使用input_data.如果需要继续使用，请查看[input_data.py](../Example/input_data.py)
 

@@ -10,7 +10,7 @@ tags:
 import tensorflow as tf
 matrix1 = tf.constant([[3.,3.]]) # create a constant
 matrix2 = tf.constant([[2.],[2.]])
-product = tf.matual(matrix1,matrix2)  # create a matlum op(operation)
+product = tf.matmul(matrix1,matrix2)  # create a matlum op(operation)
 ```
 ### Launching the graph in a session
 ```py
@@ -19,3 +19,9 @@ result = sess.run(product)
 print(result)
 sess.close()   # DONT FORGET THIS!
 ```
+or
+``` py
+with tf.Session as sess:
+	# Do something
+```
+

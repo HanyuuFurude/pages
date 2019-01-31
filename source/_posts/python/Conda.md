@@ -13,7 +13,9 @@ tags: Python
 
 * Powershell添加conda/anaconda支持：
   1. 安装库：
-      ``` conda install -n root -c pscondaenvs pscondaenvs ```
+      ``` powershell
+      conda install -n root -c pscondaenvs pscondaenvs 
+      ```
 
     > 如果因为某些原因无法通过上述方案安装……请手动下载安装
     >
@@ -30,7 +32,14 @@ tags: Python
     [Y] 是(Y)  [A] 全是(A)  [N] 否(N)  [L] 全否(L)  [S] 暂停(S)  [?] 帮助(默认值为“N”):Y
     ```
 
-  3. 此时可以正常``` activate```
+  3. 此时可以正常使用Powershell切换到特定环境
+
+  ``` powershell 
+  activate [EnvironmentName]
+  ```
+
+  4. 原理：其实……就是……加了个……ps1文件替换bat……（呵呵呵~）
+
 
 # Using Jupyter with anaconda/conda
 
@@ -40,29 +49,36 @@ tags: Python
 
     1.  Install ipykernel
 
-        ​	```conda install ipykernel ```
-
+        ```powershell
+        conda install ipykernel 
+        ```
     2.  Create kernel files in virtual environment
 
-        ​	```conda install -n [EnvironmentName] ipykernel ```
-
+        ```powershell
+        conda install -n [EnvironmentName] ipykernel 
+        ```
     3.  activate virtual environment
 
-        ​	```activate [EnvironmentName]```
-
+        ```powershell
+        activate [EnvironmentName]
+        ```
     4.  Add your virtual environment into kernel for notebook
 
-        ​	```python -m ipykernel install --user --name [EnvironmentName] --display-name [EnvironmentDisplayName] ```
-
+        ```powershell
+        python -m ipykernel install --user --name [EnvironmentName] --display-name [EnvironmentDisplayName]
+        ```
     5.  open your jupyter notebook and enjoy your pythoning : )
 
-        ​	``` jupyter notebook```
-
+        ``` powershell
+        jupyter notebook
+        ```
 *   If your environment has not been created...
 
-    ```conda create -n [EnvironmentName] python=?.? ipykernel```
-
+    ``` powershell
+    conda create -n [EnvironmentName] python=?.? ipykernel
+    ```
 *   Delete a environment
 
-    ``` jupyter kernelspec remote [EnvironmentName]```
-
+    ``` powershell
+    jupyter kernelspec remote [EnvironmentName]
+    ```
