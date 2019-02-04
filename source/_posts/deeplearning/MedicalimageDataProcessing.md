@@ -1,7 +1,7 @@
 ---
 title: Medical image Data Processing
 date: 2019-02-03 00:00:00
-tags: deep learning, medical, image, gile processing
+tags: deep learning, medical, image, gile processing08-6
 ---
 > 转载自[医疗影像数据处理--python处理nifti数据](https://zhuanlan.zhihu.com/p/23738974)
 * dicom
