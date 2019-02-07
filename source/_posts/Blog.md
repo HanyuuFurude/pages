@@ -3,16 +3,21 @@ title: Hanyuu's tech blog.
 date: 2020-01-01 00:00:00
 tags: techlog
 ---
-> Hanyuu Furude的个人主页 \
-> 联系我[HanyuuFurude@outlook.com](mailto:HanyuuFurude@outlook.com) \
-> 欢迎相互交换友链desu~ \
-> 弱鸡一只暂时姿势水平不高没啥好看的.jpg
-> 该板块迁移尚未完成，此页面部分内链均处于失效状态，请移步[TechBlog](https://hanyuufurude.github.io/TechBlog)。
-
 [![](https://img.shields.io/github/downloads/atom/atom/total.svg)](https://github.com/HanyuuFurude/TechBlog/archive/master.zip)
 [![](https://img.shields.io/github/issues/HanyuuFurude/TechBlog.svg)](https://github.com/HanyuuFurude/TechBlog/issues)
 [![](https://img.shields.io/github/license/HanyuuFurude/TechBlog.svg)](https://github.com/HanyuuFurude/TechBlog/blob/master/LICENSE)
 [![GitHub stars](https://img.shields.io/github/stars/HanyuuFurude/TechBlog.svg)](https://github.com/HanyuuFurude/TechBlog/stargazers)
+
+> Copyright © 2017-2019 Hanyuu Furude All Right Reserved \
+> [Contact me](mailto:HanyuuFurude@outlook.com)
+
+> P.S. \
+> 欢迎相互交换友链desu~ \
+> 弱鸡一只暂时姿势水平不高没啥好看的.jpg \
+> 该板块迁移尚未完成，此页面部分内链均处于失效状态，请移步[TechBlog](https://hanyuufurude.github.io/TechBlog)。
+> 近段时间较忙本目录疏于更新……近段时间内的文章暂未收录请手动查看……
+
+
 
 
 ## [工具链和工具索引](/Link)
