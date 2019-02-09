@@ -34,6 +34,7 @@ tags: techlog
 * [快速查阅](/Tensorflow/TensorflowRef)
 * [MNIST粗暴入门](/Tensorflow/TensorflowLeadin)
 * [MNIST卷积和池化](/Tensorflow/TensorflowConvandPool)
+* [炼丹过程中用到的一些术语解释收集](/Tensorflow/terminology/)
 
 ### OpenCV [纯粹就是做项目时候自己的爬坑记录]
 * [OpenCV安装指引](https://docs.opencv.org/3.0-beta/doc/py_tutorials/py_setup/py_table_of_contents_setup/py_table_of_contents_setup.html#py-table-of-content-setup)
@@ -47,17 +48,22 @@ tags: techlog
 * [正则表达式入门](http://www.runoob.com/python3/python3-reg-expressions.html)
 * [Requests python 爬虫入门](https://blog.csdn.net/gyq1998/article/details/78583841)
 * [xlrd python Excel文档处理](/python/xlrd)
+* [Python炼丹炉（maching learning）环境搭建常见问题](/python/Conda/)
 
 ### Deep learning
 * [terminology]( /deeplearning/terminology)
 * [deeplearningbook.org](http://www.deeplearningbook.org/)
 * [deeplearningbook-chinese](https://github.com/exacity/deeplearningbook-chinese)
-* [李彦宏的deep learning教程\[网易云\]](http://mooc.study.163.com/smartSpec/detail/1001319001.htm
+* [李彦宏的deep learning教程(网易云)](http://mooc.study.163.com/smartSpec/detail/1001319001.htm)
+* [常见医学图像处理](/deeplearning/MedicalimageDataProcessing/)
 
 ### Others
 * [markdown-Latex公式快速查阅](/Others/Latex)
 * [Windows更新缓存](/Others/windowsUpdateCacheClear/)
 * [重置 Windows 更新组件(ms官网链接)](https://support.microsoft.com/zh-cn/help/971058/how-do-i-reset-windows-update-components)
+* [软工导论复习提纲](/Review/SoftwareEngineering/)
+* [JAVA 复习提纲](/Review/Java复习提纲/)
+* [数据结构小结复习提纲](Review/数据结构小结/)
 
 
 
