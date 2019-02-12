@@ -3,10 +3,10 @@ title: Hanyuu's tech blog.
 date: 2020-01-01 00:00:00
 tags: techlog
 ---
-[![](https://img.shields.io/github/downloads/atom/atom/total.svg)](https://github.com/HanyuuFurude/TechBlog/archive/master.zip)
-[![](https://img.shields.io/github/issues/HanyuuFurude/TechBlog.svg)](https://github.com/HanyuuFurude/TechBlog/issues)
-[![](https://img.shields.io/github/license/HanyuuFurude/TechBlog.svg)](https://github.com/HanyuuFurude/TechBlog/blob/master/LICENSE)
-[![GitHub stars](https://img.shields.io/github/stars/HanyuuFurude/TechBlog.svg)](https://github.com/HanyuuFurude/TechBlog/stargazers)
+[![Repository](https://img.shields.io/github/downloads/atom/atom/total.svg)](https://github.com/HanyuuFurude/TechBlog/archive/master.zip)
+[![Issue](https://img.shields.io/github/issues/HanyuuFurude/TechBlog.svg)](https://github.com/HanyuuFurude/TechBlog/issues)
+[![License](https://img.shields.io/github/license/HanyuuFurude/TechBlog.svg)](https://github.com/HanyuuFurude/TechBlog/blob/master/LICENSE)
+[![stargazers](https://img.shields.io/github/stars/HanyuuFurude/TechBlog.svg)](https://github.com/HanyuuFurude/TechBlog/stargazers)
 
 > Copyright © 2017-2019 Hanyuu Furude All Right Reserved \
 > [Contact me](mailto:HanyuuFurude@outlook.com)
@@ -14,8 +14,8 @@ tags: techlog
 > P.S. \
 > 欢迎相互交换友链desu~ \
 > 弱鸡一只暂时姿势水平不高没啥好看的.jpg \
-> 该板块迁移尚未完成，此页面部分内链均处于失效状态，请移步[TechBlog](https://hanyuufurude.github.io/TechBlog)。
-> 近段时间较忙本目录疏于更新……近段时间内的文章暂未收录请手动查看……
+> 迁移好了迁移好了2333.~~该板块迁移尚未完成，此页面部分内链均处于失效状态，请移步[TechBlog](https://hanyuufurude.github.io/TechBlog)。~~\
+> 更新完了更新完了2333.~~近段时间较忙本目录疏于更新……近段时间内的文章暂未收录请手动查看……~~
 
 
 
@@ -34,13 +34,13 @@ tags: techlog
 * [快速查阅](/Tensorflow/TensorflowRef)
 * [MNIST粗暴入门](/Tensorflow/TensorflowLeadin)
 * [MNIST卷积和池化](/Tensorflow/TensorflowConvandPool)
+* [炼丹路上那些踩过的坑](/Tensorflow/commomQuestion/)
 * [炼丹过程中用到的一些术语解释收集](/Tensorflow/terminology/)
 
 ### OpenCV [纯粹就是做项目时候自己的爬坑记录]
 * [OpenCV安装指引](https://docs.opencv.org/3.0-beta/doc/py_tutorials/py_setup/py_table_of_contents_setup/py_table_of_contents_setup.html#py-table-of-content-setup)
 *  [基本函数参考](/OpenCV/OpenCVFunctionRef/)
 *  [基本操作参考](/OpenCV/OpenCVBasicOperations/)
-*  [常见问题](/OpenCV/OpenCVCommomQuestion/)
 
 ### Python
 * [PythonFunctionRef](/python/PythonFunctionRef/PythonFunctionRef)

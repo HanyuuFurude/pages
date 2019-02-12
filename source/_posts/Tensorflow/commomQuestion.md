@@ -1,7 +1,7 @@
 ---
-title: OpenCV常见问题
-date: 2018-09-20 00:00:00
-tags: OpenCV, vsCode
+title: 炼丹路上那些踩过的坑
+date: 2019-02-10 00:00:00
+tags: OpenCV, vsCode, tensorflow, confilct
 ---
 
  ## <font color=red>**使用VSCode运行openCV劝退事宜**</font>
@@ -36,3 +36,11 @@ print('You pressed %d (0x%x), 2LSB: %d (%s)' % (res, res, res % 2**16,repr(chr(r
  ctrlPressed = 0 != res & (1 << 18)
 ```
  ...as the "control key" flag is bit 19. Shift is at bit 17, the state of CapsLock at bit 18, Alt is at bit 20, and NumLock is at bit 21.
+
+## cuDNN 初始化失败
+
+> Error : Failed to get convolution algorithm. This is probably because cuDNN failed to initialize, so try looking to see if a warning log message was printed above.
+>
+如果您使用的Tensorflow版本是1.12.0…… \
+这可能是个tensorflow的bug、建议回退版本观望， \
+[issue on github](https://github.com/tensorflow/tensorflow/issues/24828)
