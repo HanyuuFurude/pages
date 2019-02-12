@@ -56,6 +56,7 @@ tags: techlog
 * [deeplearningbook-chinese](https://github.com/exacity/deeplearningbook-chinese)
 * [李彦宏的deep learning教程(网易云)](http://mooc.study.163.com/smartSpec/detail/1001319001.htm)
 * [常见医学图像处理](/deeplearning/MedicalimageDataProcessing/)
+* [范数](/deeplearning/norm/)
 
 ### Others
 * [markdown-Latex公式快速查阅](/Others/Latex)
@@ -89,5 +90,4 @@ By:Hanyuu
 
   Recently updated:2018/10/27
 
-  ![Hanyuu](https://raw.githubusercontent.com/HanyuuFurude/TechBlog/master/studyNotes/rm.png
-)
+  ![Hanyuu](https://raw.githubusercontent.com/HanyuuFurude/TechBlog/master/studyNotes/rm.png)
