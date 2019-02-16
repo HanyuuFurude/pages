@@ -1,5 +1,5 @@
 ---
-title: 将文件从gitcommit记录中抹除
+title: 将文件从git commit记录中抹除
 date: 2019-02-15 00:00:00
 tags: git, commit ,cleear
 ---

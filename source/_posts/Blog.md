@@ -60,6 +60,7 @@ tags: techlog
 * [拉格朗日乘子法](/deeplearning/LagrangeMultiplier/)
 
 ### Others
+* [将文件从gitcommit记录中抹除](/git/gitClear/)
 * [markdown-Latex公式快速查阅](/Others/Latex)
 * [Windows更新缓存](/Others/windowsUpdateCacheClear/)
 * [重置 Windows 更新组件(ms官网链接)](https://support.microsoft.com/zh-cn/help/971058/how-do-i-reset-windows-update-components)
