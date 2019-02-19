@@ -2,6 +2,7 @@
 title: 再生核希尔伯特空间(RKHS)
 date: 2019-02-17 00:00:00
 tags: deep learning, RKHS, math
+mathjax: true
 ---
 > **【转载，文末有出处】**
 # 核函数

@@ -92,9 +92,9 @@ markdown_it_plus:
     typographer:
       quotes: “”‘’
       plugins:
-        - plugin:
-          name: markdown-it-katex
-          enable: true
-        - plugin:
-          name: markdown-it-mark
-          enable: false
+      - plugin:
+        name: markdown-it-katex
+        enable: true
+      - plugin:
+        name: markdown-it-mark
+        enable: false
