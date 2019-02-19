@@ -1,6 +1,6 @@
 ---
 title: Hanyuu's tech blog.
-date: 2333-22-33 00:00:00
+date: 2333-03-03 00:00:00
 tags: techlog
 ---
 [![Repository](https://img.shields.io/github/downloads/atom/atom/total.svg)](https://github.com/HanyuuFurude/TechBlog/archive/master.zip)
