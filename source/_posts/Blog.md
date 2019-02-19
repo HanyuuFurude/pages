@@ -13,20 +13,17 @@ tags: techlog
 
 > P.S. \
 > 欢迎相互交换友链desu~ \
-> 弱鸡一只暂时姿势水平不高没啥好看的.jpg \
-> 迁移好了迁移好了2333.~~该板块迁移尚未完成，此页面部分内链均处于失效状态，请移步[TechBlog](https://hanyuufurude.github.io/TechBlog)。~~\
-> 更新完了更新完了2333.~~近段时间较忙本目录疏于更新……近段时间内的文章暂未收录请手动查看……~~
-
-
+> 弱鸡一只暂时姿势水平不高没啥好看的.jpg
 
 
 ## [工具链和工具索引](/Link)
 ## Introduction
-> - 工具和其他教程[链接](https://inariecho.github.io/)
+> - ~~工具和其他教程[链接](https://inariecho.github.io/)~~ \
+> 本站已收录【√】
 > - 一些常用工具/语言/技术的小结。
-> - Tensorflow 从入门到调参（x）
 > - ~~markdown中可能存在Latex公式……Github预览暂时不支持该类型公式的显示……所以请自行使用合适的预览/阅读工具。~~
-> - 由于hexo上的LaTeX渲染引擎还有点问题所以部分LaTeX公式（主要是涉及上下位置调动的）可能导致渲染问题。（当你发现(Latex)这个公式($\LaTeX$)不能正常渲染时，你已经躺枪了.jpg）
+> - ~~由于hexo上的LaTeX渲染引擎还有点问题所以部分LaTeX公式（主要是涉及上下位置调动的）可能导致渲染问题。（当你发现(Latex)这个公式($\LaTeX$)不能正常渲染时，你已经躺枪了.jpg）~~\
+> 已经解决【√】
 
 ## Contents
 ***
@@ -58,6 +55,7 @@ tags: techlog
 * [常见医学图像处理](/deeplearning/MedicalimageDataProcessing/)
 * [范数](/deeplearning/norm/)
 * [拉格朗日乘子法](/deeplearning/LagrangeMultiplier/)
+* [再生希尔伯特空间（转载）](/deeplearning/RKHS/)
 
 ### Others
 * [将文件从gitcommit记录中抹除](/git/gitClear/)

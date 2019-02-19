@@ -3,9 +3,6 @@ title: 范数
 date: 2019-02-12 23:00:00
 tags: deep learning, norm
 ---
-> 因为这个Latex渲染器工作异常……我向各位看官老爷谢罪了……\
-> 请通过markdown源文件脑动/软件重新渲染公式……\
-> 关于Latex渲染器的bug问题本弱鸡……看缘修复吧……(真的未必有时间搞这玩意sigh)
 # $L-P$范数
  与闵可夫斯基距离的定义一样，$L-P$范数不是一个范数，而是一组范数，其定义如下
  $$L_p=\sqrt[p]{\sum_i^n{x^p_i}}\  x=x_1,x_2,\cdot \cdot \cdot ,x_n$$
