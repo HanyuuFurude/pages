@@ -10,3 +10,5 @@ tags:
 * [SVM(支持向量机)](https://www.zhihu.com/question/21094489/answer/86273196)
 * [SVM&SVR](https://www.cnblogs.com/Belter/p/8975606.html)
 * [再生核希尔伯特空间](https://zhuanlan.zhihu.com/p/29527729)
+* [贝叶斯分类器](https://www.jianshu.com/p/427ce9749fad)
+* [极大似然估计](https://www.jianshu.com/p/f1d3906e4a3e)
