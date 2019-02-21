@@ -12,3 +12,5 @@ tags:
 * [再生核希尔伯特空间](https://zhuanlan.zhihu.com/p/29527729)
 * [贝叶斯分类器](https://www.jianshu.com/p/427ce9749fad)
 * [极大似然估计](https://www.jianshu.com/p/f1d3906e4a3e)
+* [图像语义分割](https://www.leiphone.com/news/201705/YbRHBVIjhqVBP0X5.html)
+* [卷积神经网络应用：基于Tensorflow的CNN/CRF图像分割技术](https://yq.aliyun.com/articles/67189)
