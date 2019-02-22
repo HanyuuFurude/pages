@@ -12,3 +12,18 @@ tags: python, conflicts, package
 * 使用其他包代替（听起来像废话但是这的确是个方法2333）
 * 自闭（简单粗暴）（逃）
 * 我没有发现而您觉得行之有效的任何方法，请务必[赐教笔者](mailto:HanyuuFurude@outlook.com)，感激不尽，orz
+## 举例说明
+笔者冲突的包是
+> scipy 1.2.1
+> tensorflow 1.12.0
+被依赖的冲突的包是
+> numpy
+报错现象
+RuntimeError: module compiled against API version 0xc but this version of numpy is 0xb
+解决方法
+tensorflow 1.12.0版本过高导致numpy兼容性问题(tensorflow-gpu 1.12.0还有其他已知bug,此处不表)逐级降低tensorflow版本到1.10.0之后发现问题消失可以正常使用
+兼容的一组包
+> scipy 1.2.1
+> tensorflow 1.10.0
+## 写在最后
+配置环境一直都是比较玄学的问题(没有经验的情况下),如果您遇到了环境问题,请先保持冷静,保持冷静,冷静,然后,上网看看别人有没有类似的问题,如果没有的话,请耐心探索吧,这也是……一种经验吧……

@@ -44,3 +44,7 @@ print('You pressed %d (0x%x), 2LSB: %d (%s)' % (res, res, res % 2**16,repr(chr(r
 如果您使用的Tensorflow版本是1.12.0…… \
 这可能是个tensorflow的bug、建议回退版本观望， \
 [issue on github](https://github.com/tensorflow/tensorflow/issues/24828)
+
+## %matplotlib inline 报错 <font color=red>invalid syntax</font>
+%matplotlib inline 是jupyter notebook/console的语法，当你调用`matplotlib.pyplot`绘图函数`plot()`或生成figure时，在python console里面生成图像。
+如果在其他地方运行，可直接注释。

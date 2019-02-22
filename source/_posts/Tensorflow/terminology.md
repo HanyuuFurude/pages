@@ -14,3 +14,8 @@ tags:
 * [极大似然估计](https://www.jianshu.com/p/f1d3906e4a3e)
 * [图像语义分割](https://www.leiphone.com/news/201705/YbRHBVIjhqVBP0X5.html)
 * [卷积神经网络应用：基于Tensorflow的CNN/CRF图像分割技术](https://yq.aliyun.com/articles/67189)
+* [运用图像处理解决基于MRI的脑肿瘤图像分割问题](https://blog.csdn.net/qq_40980917/article/details/84551632)
+* [Tensorflow实现FCN](https://blog.csdn.net/MOU_IT/article/details/81073149)
+* [https://blog.csdn.net/taigw/article/details/51401448](全卷积网络（FCN）与图像分割)
+* waiting... (。・∀・)ノ
+
