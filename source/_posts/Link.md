@@ -116,11 +116,12 @@ tags: techlog
 * [OpenCV-Python doc](https://opencv-python-tutroals.readthedocs.io/en/latest/py_tutorials/py_tutorials.html)
 
 ## Tensorflow
-*   [TensorFlow](https://www.tensorflow.org)
-*    [TensorFlow cn](http://www.tensorfly.cn/)
-*    [TensorFlowTach google](https://developers.google.com/machine-learning/crash-course/framing/ml-terminology?hl=zh-cn)
- *   [TensorFlow.js](https://js.tensorflow.org/)
-  *  [Chainer doc](https://docs.chainer.org/en/stable/)
+* [TensorFlow](https://www.tensorflow.org)
+* [TensorFlow cn](http://www.tensorfly.cn/)
+* [TensorFlowTach google](https://developers.google.com/machine-learning/crash-course/framing/ml-terminology?hl=zh-cn)
+* [TensorFlow.js](https://js.tensorflow.org/)
+* [Chainer doc](https://docs.chainer.org/en/stable/)
+* [keras](https://keras.io/)
 
 ## Deep learning
 *   [Deep Learning Book En](http://www.deeplearningbook.org/)
