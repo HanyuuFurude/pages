@@ -122,6 +122,7 @@ tags: techlog
 * [TensorFlow.js](https://js.tensorflow.org/)
 * [Chainer doc](https://docs.chainer.org/en/stable/)
 * [keras](https://keras.io/)
+* [keras cn google](https://tensorflow.google.cn/guide/keras)
 * [keras cn](https://keras-cn.readthedocs.io/en/latest/for_beginners/keras_windows/)
 
 ## Deep learning
