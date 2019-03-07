@@ -12,6 +12,8 @@ tags: log
 # 2019
 
 ## Mar.
+* 03
+> 活在被Runtimer error和Wrong answer支配的阴影中……
 
 * 02
 > 中期中期中期...
