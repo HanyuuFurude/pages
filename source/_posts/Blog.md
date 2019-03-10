@@ -27,12 +27,16 @@ tags: techlog
 
 ## Contents
 ***
+### Course
+* [神奇链接（只有collaborator才能看到哦~）感谢一姬同学的commit](https://github.com/HanyuuFurude/cw23)
+
 ### Tensorflow
 * [快速查阅](/Tensorflow/TensorflowRef)
 * [MNIST粗暴入门](/Tensorflow/TensorflowLeadin)
 * [MNIST卷积和池化](/Tensorflow/TensorflowConvandPool)
 * [炼丹路上那些踩过的坑](/Tensorflow/commomQuestion/)
 * [炼丹过程中用到的一些术语解释收集](/Tensorflow/terminology/)
+* [keras入坑](/Tensorlfow/keras)
 
 ### OpenCV [纯粹就是做项目时候自己的爬坑记录]
 * [OpenCV安装指引](https://docs.opencv.org/3.0-beta/doc/py_tutorials/py_setup/py_table_of_contents_setup/py_table_of_contents_setup.html#py-table-of-content-setup)
@@ -46,6 +50,7 @@ tags: techlog
 * [Requests python 爬虫入门](https://blog.csdn.net/gyq1998/article/details/78583841)
 * [xlrd python Excel文档处理](/python/xlrd)
 * [Python炼丹炉（maching learning）环境搭建常见问题](/python/Conda/)
+* [anaconda导出/入环境](/python/envIO/)
 
 ### Deep learning
 * [terminology]( /deeplearning/terminology)
@@ -56,8 +61,10 @@ tags: techlog
 * [范数](/deeplearning/norm/)
 * [拉格朗日乘子法](/deeplearning/LagrangeMultiplier/)
 * [再生希尔伯特空间（转载）](/deeplearning/RKHS/)
+* []
 
 ### Others
+* [vim操作参考](/Others/vim/)
 * [将文件从gitcommit记录中抹除](/git/gitClear/)
 * [markdown-Latex公式快速查阅](/Others/Latex)
 * [Windows更新缓存](/Others/windowsUpdateCacheClear/)

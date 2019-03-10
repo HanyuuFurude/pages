@@ -12,6 +12,10 @@ tags: log
 # 2019
 
 ## Mar.
+* 10
+> 虽然你每次WA的样子有点狼狈，但是你WA之后接着WA的样子是真的很帅（x）。
+> P.S.中期答辩咋办啊.jpg
+
 * 03
 > 活在被Runtimer error和Wrong answer支配的阴影中……
 
