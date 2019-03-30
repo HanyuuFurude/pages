@@ -7,7 +7,7 @@ tags: log
 > 你以为我有什么东西可以拿来压箱底嘛2333.\
 > 不存在的
 
-![Hanyuu](https://raw.githubusercontent.com/HanyuuFurude/TechBlog/master/studyNotes/rm.png
+![Hanyuu](https://raw.githubusercontent.com/HanyuuFurude/TechBlog/master/res/rm.png
 )
 # 2019
 

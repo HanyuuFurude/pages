@@ -109,4 +109,4 @@ By:Hanyuu
 
   Recently updated:2018/10/27
 
-  ![Hanyuu](https://raw.githubusercontent.com/HanyuuFurude/TechBlog/master/studyNotes/rm.png)
+  ![Hanyuu](https://raw.githubusercontent.com/HanyuuFurude/TechBlog/master/res/rm.png)
