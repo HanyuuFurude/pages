@@ -241,7 +241,7 @@ System call 作为沟通上下层的连接件，其实现没有想象中的那�
 asmlinkage long sys_hanyuu(void)	//自定义系统调用实现
 {
 printk("\n[[hanyuu]] System call start\n");
-printk("my student number is 71117417 and my name ls Liqiang Lu.");
+printk("my student number is [N/A] and my name ls Hanyuu Furude.");
 printk("\n[[hanyuu]] System call end\n");
 return 0;
 }
