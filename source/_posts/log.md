@@ -10,6 +10,11 @@ tags: log
 ![Hanyuu](https://raw.githubusercontent.com/HanyuuFurude/TechBlog/master/res/rm.png
 )
 # 2019
+## Apr.
+* 12
+> 所以？
+> 啊算了，就这样吧……
+> 整日碌碌无为也就这样了。
 
 ## Mar.
 * 31
