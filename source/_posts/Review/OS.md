@@ -135,11 +135,27 @@ tags: os
 
 # Chapter03 Process
 
-*   Process concept
+*   Process 
 
-*   
-
-*   <iframe width = 500px, src="//player.bilibili.com/player.html?aid=27134146&cid=53397828&page=1&season_type=5" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
+    *   test section(program code)
+    *   **program counter**
+    *   **contents of the processer's registers**
+    *   Heap-stack
+    *   data section
+    *   ![](/Review/assets/1555171608763.png)
+    *   ![](OS/1555171608763.png)
+    *   **Characteristic of process**
+        *   **Dynamic动态性**
+        *   **Independency独立性**
+        *   **Concurrence并发性**
+        *   **Structure结构化**
+    *   PR.进程和程序是两个密切相关的概念，请阐述他们之间的区别和联系
+    *   Process state
+    *   ![](/Review/OS/1555173365887.png)
+    *   ![](OS/1555173365887.png)
+    *   Process control block(PCB)
+    *   ![](/Review/OS/1555173537094.png)
+    *   ![](OS/1555173537094.png)
 
     ```
     正在更(hua)新(shui)中...
@@ -155,3 +171,6 @@ tags: os
 
 
 
+
+
+​		
