@@ -142,7 +142,7 @@ tags: os
     *   **contents of the processer's registers**
     *   Heap-stack
     *   data section
-    *   ![](/Review/assets/1555171608763.png)
+    *   ![](/Review/OS/1555171608763.png)
     *   ![](OS/1555171608763.png)
     *   **Characteristic of process**
         *   **Dynamic动态性**
@@ -156,6 +156,39 @@ tags: os
     *   Process control block(PCB)
     *   ![](/Review/OS/1555173537094.png)
     *   ![](OS/1555173537094.png)
+
+*   Process scheduling queues
+
+    *   Job queue (in main memory)
+        *   Ready queue 
+        *   device queues
+            *   process migration between the various queues
+            *   ![](/Review/OS/1555217568804.png)
+            *   ![](OS/1555217568804.png)
+            *   ![](/Review/OS/1555217608602.png)
+            *   ![](OS/1555217608602.png)
+        *   Schedulers
+            *   Long-term scheduler(秒级、分钟级，作业调度)
+            *   Short-term scheduler(毫秒级，CPU调度)
+            *   Medium-term scheduler(swapping)
+        *   I/O bound process
+        *   CPU bound process
+        *   Context switch
+            *   The **context** of a process is represented in **PCB** of the process and includes the values of CPU registers.
+            *   保存执行后的上下文信息
+            *   上下文切换会带来开销
+            *   尽量减少上下文切换以减少开销
+            *   ![1555685657476](/Review/OS/1555685657476.png)
+            *   ![1555685657476](OS/1555685657476.png)
+
+*   Operation on Process
+
+    *   Process creation
+        *   child process(unique process identifier(int)), tree of process
+
+*   Interprocess Communication
+
+*   Communication in Client-Server System
 
     ```
     正在更(hua)新(shui)中...
