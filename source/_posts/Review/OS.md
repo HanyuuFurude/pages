@@ -7,68 +7,63 @@ tags:
 	- review
 categories: review
 ---
-# Chapter0
+[TOC]
 
+# Chapter 1 Introduction
 
+* System view
+	* Resource allocator
+	* Control program
 
-# Chapter1 Introduction
+* Dual-Mode Operation
+	* User mode
+	* Kernel mode
+		*   privileged instruction
+		*   ![](/Review/OS/1555051141346.png)
+		*   ![](/OS/1555051141346.png)
+	* Hardware
+	* **CPU protection**
+		*   **timer**
+		    *   **time sharing**
+	* **memory protection**
+		*   **Base register**
+		*   **Limit register**
+	* **I/O protection**
+		*   **all I/O instruction are privilege instructions**
 
-### System view
+* Development of OS
+	*   mainframe systems
 
-*   Resource allocator
-*   Control program
+		*   NO OS
+		*   **batch systems**
+		*   **multiprogramming systems**
+		*   **time sharing systems**
 
-### Dual-Mode Operation
+	*   desktop systems
 
-*   User mode
-*   Kernel mode
-    *   privileged instruction
-    *   ![](/Review/OS/1555051141346.png)
-    *   ![](/OS/1555051141346.png)
-*   Hardware
-*   **CPU protection**
-    *   **timer**
-        *   **time sharing**
-*   **memory protection**
-    *   **Base register**
-    *   **Limit register**
-*   **I/O protection**
-    *   **all I/O instruction are privilege instructions**
+	*   multiprocessor systems
 
-### Development of OS
+	*   distributed systems
 
-*   mainframe systems
+	*   clustered systems
 
-    *   NO OS
-    *   **batch systems**
-    *   **multiprogramming systems**
-    *   **time sharing systems**
+	*   real-time systems
 
-*   desktop systems
+	*   handheld systems
 
-*   multiprocessor systems
+	*   现代操作系统的特征
 
-*   distributed systems
+		*   **并发性Concurrence**
+		*   **共享性Sharing**
+		*   **虚拟性Virtual**
+		*   **异步性Asynchronism**
+		*   提高CPU利用率，充分发挥并发性：**程序之间、设备之间、设备与CPU之间**均**并发工作**
 
-*   clustered systems
+	*   Pr：
 
-*   real-time systems
+		批处理系统、多道程序系统和分时系统的技术特性
 
-*   handheld systems
-
-*   现代操作系统的特征
-
-    *   **并发性Concurrence**
-    *   **共享性Sharing**
-    *   **虚拟性Virtual**
-    *   **异步性Asynchronism**
-    *   提高CPU利用率，充分发挥并发性：**程序之间、设备之间、设备与CPU之间**均**并发工作**
-
-*   Pr：
-
-    批处理系统、多道程序系统和分时系统的技术特性
-
-# Chapter2 Operating-System Structures
+# Chapter 2 Operating-System Structures
 
 *   功能和服务的差别：
     *   对内：自行实现
@@ -107,6 +102,7 @@ categories: review
                 *   Information maintenance
                 *   Communications
     *   **PR. Why do user use APIs rather than system calls directory?**
+    *   **ANS.**
         1.  跨平台能力（提供相同的API封装）移植性好
         2.  模块化封装，可维护性好
         3.  简化了程序编写
@@ -137,74 +133,207 @@ categories: review
     *   操作系统接口：用户接口（CLI、GUI）、程序接口（**系统调用（参数传递、类型）**）、SCI、API
     *   操作系统结构
 
-# Chapter03 Process
+# Chapter 3 Process
 
 *   Process 
 
-    *   test section(program code)
-    *   **program counter**
-    *   **contents of the processer's registers**
-    *   Heap-stack
-    *   data section
-    *   ![](/Review/OS/1555171608763.png)
-    *   ![](OS/1555171608763.png)
-    *   **Characteristic of process**
-        *   **Dynamic动态性**
-        *   **Independency独立性**
-        *   **Concurrence并发性**
-        *   **Structure结构化**
-    *   PR.进程和程序是两个密切相关的概念，请阐述他们之间的区别和联系
-    *   Process state
-    *   ![](/Review/OS/1555173365887.png)
-    *   ![](OS/1555173365887.png)
-    *   Process control block(PCB)
-    *   ![](/Review/OS/1555173537094.png)
-    *   ![](OS/1555173537094.png)
+	*   test section(program code)
+	*   **program counter**
+	*   **contents of the processer's registers**
+	*   Heap-stack
+	*   data section
+	*   ![](/Review/OS/1555171608763.png)
+	*   ![](OS/1555171608763.png)
+	*   **Characteristic of process**
+	    *   **Dynamic动态性**
+	    *   **Independency独立性**
+	    *   **Concurrence并发性**
+	    *   **Structure结构化**
+	*   PR.进程和程序是两个密切相关的概念，请阐述他们之间的区别和联系
+	*   Process state
+	*   ![](/Review/OS/1555173365887.png)
+	*   ![](OS/1555173365887.png)
+	*   Process control block(PCB)
+	*   ![](/Review/OS/1555173537094.png)
+	*   ![](OS/1555173537094.png)
 
 *   Process scheduling queues
 
-    *   Job queue (in main memory)
-        *   Ready queue 
-        *   device queues
-            *   process migration between the various queues
-            *   ![](/Review/OS/1555217568804.png)
-            *   ![](OS/1555217568804.png)
-            *   ![](/Review/OS/1555217608602.png)
-            *   ![](OS/1555217608602.png)
-        *   Schedulers
-            *   Long-term scheduler(秒级、分钟级，作业调度)
-            *   Short-term scheduler(毫秒级，CPU调度)
-            *   Medium-term scheduler(swapping)
-        *   I/O bound process
-        *   CPU bound process
-        *   Context switch
-            *   The **context** of a process is represented in **PCB** of the process and includes the values of CPU registers.
-            *   保存执行后的上下文信息
-            *   上下文切换会带来开销
-            *   尽量减少上下文切换以减少开销
-            *   ![1555685657476](/Review/OS/1555685657476.png)
-            *   ![1555685657476](OS/1555685657476.png)
+	*   Job queue (in main memory)
+	    *   Ready queue 
+	    *   device queues
+	        *   process migration between the various queues
+	        *   ![](/Review/OS/1555217568804.png)
+	        *   ![](OS/1555217568804.png)
+	        *   ![](/Review/OS/1555217608602.png)
+	        *   ![](OS/1555217608602.png)
+	    *   Schedulers
+	        *   Long-term scheduler(秒级、分钟级，作业调度)
+	        *   Short-term scheduler(毫秒级，CPU调度)
+	        *   Medium-term scheduler(swapping)
+	    *   I/O bound process
+	    *   CPU bound process
+	    *   Context switch
+	        *   The **context** of a process is represented in **PCB** of the process and includes the values of CPU registers.
+	        *   保存执行后的上下文信息
+	        *   上下文切换会带来开销
+	        *   尽量减少上下文切换以减少开销
+	        *   ![](/Review/OS/1555685657476.png)
+	        *   ![](OS/1555685657476.png)
 
 *   Operation on Process
 
-    *   Process creation
-        *   child process(unique process identifier(int)), tree of process
+	*   Process creation
 
-*   Interprocess Communication
+		*   child process(unique process identifier(int)), tree of process
+
+		*   resource sharing
+
+			*   parent and children shall all resources
+			*   children share subset of parent’s resources
+			*   parent and child share no resources
+
+		*   Execution
+
+			*   Parent and children execute concurrently
+			*   Parent waits until children terminate
+
+		*   Address space
+
+			*   child duplicate of parent
+
+			*   child has a program loaded into it (new text section)
+
+			*   UNIX examples
+
+				*   ```fork()``` :create new process
+
+				*   ```exec()``` :used after a fork to replace the process’s memory space with a new program
+
+					![](/review/OS/1555737064290.png)
+
+				*   ![](OS/1555737064290.png)
+
+				*   ``` c++
+					pid = fork();
+					if(pid<0)	/* error occured */
+					{
+					    printf(stderr,"Fork failed");
+					    exit(-1);
+					}
+					else if(pid==0)	/* child process */
+					{
+					    execlp("/bin/ls","ls",NULL);
+					}
+					else	/* parent process */
+					{
+					    wait(NULL);	/* wait for child process to finish */
+					    printf("Child complete");
+					    exit(0);
+					}
+					```
+
+			*   Process Termination
+
+				*   ```exit()``` process executes last statement and asks the operating system to delete it
+				    *   output data from child to parent (via wait)
+				    *   Process’s resources are deallocated by OS
+				*   ```abort()``` parent may terminate execution of children process
+				    *   child has exceeded allocated resources
+				    *   task assigned to child is no longer required
+				    *   parent is exiting <small>^*^not all of the operation system supports **Cascading termination(级联终止)**</small>
+
+*   InterProcess Communication(**IPC**)
+
+	*   **Independent** process cannot affect or be effected by the execution of another process
+
+	*   **Cooperating** process can affect or be effected by the execution of another process
+
+		*   Advantages
+
+			1. Information sharing
+
+			2. Computation speed-up
+
+			3. Modularity
+
+			4. Convenience
+
+	*   **Shared memory** & **Message passing**
+
+		![](/review/OS/1555742278383.png)
+
+		![](OS/1555742278383.png)
+
+		- Shared-memory Systems
+
+			- requiring communication process to establish a region of shared memory
+			- a shared memory region resides in the address space of the process creating the shared memory segment
+			- the processes are responsible for ensuring that they are not writing to the **same location simultaneously**
+				- Producer-Consumer Problem
+
+		- Message-passing Systems
+
+			- MPS has two operations
+
+				- ```send()```
+				- ```receive()```
+
+			- communication link
+
+				1. link may be unidirectional or bidirectional 
+
+				2. a link may be associated with many processes
+
+				- direct communication
+
+					- ```send(P,message)``` send a message to process P
+					- ```receive(Q,message)``` receive a message from process Q
+
+				- indirect communiction
+
+					- mailboxes
+
+						- each mailbox has a unique id
+
+						- two processes can communicate only if the share a mailbox
+
+						- Operations
+
+							> 1. create a new mailbox
+							> 2. send and receive messages through mailbox
+							> 3. destroy a mail box
+
+		- Synchronization
+
+			- Blocking: synchronous
+			- Non-blocking: asynchronous
+
+		- Buffering
+
+			- **Zero capacity** sender must wait for receiver
+			- **Bounded capacity** finite length of $n$ messages, sender must wait if link full
+			- **Unbounded capacity** infinite length, sender never blocks
 
 *   Communication in Client-Server System
 
-    ```
-    正在更(hua)新(shui)中...
-    _   _       ___   __   _  __    __  _   _   _   _  
-    | | | |     /   | |  \ | | \ \  / / | | | | | | | | 
-    | |_| |    / /| | |   \| |  \ \/ /  | | | | | | | | 
-    |  _  |   / / | | | |\   |   \  /   | | | | | | | | 
-    | | | |  / /  | | | | \  |   / /    | |_| | | |_| | 
-    |_| |_| /_/   |_| |_|  \_|  /_/     \_____/ \_____/ 
-    ```
+	*   **Sockets**
+	*   **Remote Procedure Calls**
+	*   **Remote Method Invocation (Java)**
 
-    
+# Chapter 4 Threads
+
+```
+正在更(hua)新(shui)中...
+_   _       ___   __   _  __    __  _   _   _   _  
+| | | |     /   | |  \ | | \ \  / / | | | | | | | | 
+| |_| |    / /| | |   \| |  \ \/ /  | | | | | | | | 
+|  _  |   / / | | | |\   |   \  /   | | | | | | | | 
+| | | |  / /  | | | | \  |   / /    | |_| | | |_| | 
+|_| |_| /_/   |_| |_|  \_|  /_/     \_____/ \_____/ 
+```
+
+
 
 
 
