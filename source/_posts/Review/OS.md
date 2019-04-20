@@ -425,11 +425,67 @@ categories: review
 
 - Thread Libraries
 
-- 
+	- status
+	- 
+
+	``` C++
+	int pthread_create(tid,attr,function,arg);
+	/*
+	 * pthread_t *tid
+	 	handle of created thread
+	 * const pthread_attr_t *attr
+	 	attribes of thread to be created
+	 * void *(*function)(void)
+	 	function to be mapped to thread
+	 * void * arg
+	 	single argument to function
+	 */
+	int pthread_join(tid,val_ptr);
+	/*
+	 * pthread_t *tid
+	 	handle of joinable thread
+	 * void ** var_ptr
+	 	exit value rturn by joined thread
+	 */
+	void pthread_exit(void *status);
+	int pthread_cancel(pthread_t thread);	//terminated immediately
+	int pthread_kill(pthread_t thread,int sig);
+	```
+
+	- CreateThread
+	- GetCurrentThreadId
+	- GetCurrentThread
+	- SuspendThread/ResumeTread
+	- ExitThread
+	- TerminateThread
+	- GetExitCodeThread
+	- GetThreadTimes
 
 - Threading Issues
 
 - Operating System Examples
+
+- //TODO 关于线程的实现
+
+- **Pr.**
+
+	- 信号机制和中断机制的异同
+
+- Thread Pools
+
+	- advantages
+		- faster to service a request(save the time to create new thread)
+		- allow the number of threads in the application to be bound to the size of the pool
+
+- Thread specific data
+
+	- threads belonging to a process share the data of the process
+	- allows each thread to have its own copy of data
+	- when using a thread pool, each thread may be assigned a unique identifier
+
+- Scheduler activations
+
+- **upcalls**
 
 🚧正在施工中……🚧
 
