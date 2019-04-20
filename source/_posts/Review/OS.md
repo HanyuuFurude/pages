@@ -323,6 +323,81 @@ categories: review
 
 # Chapter 4 Threads
 
+- Multithreading Models
+
+  - A thread is a flow of control within a process
+
+  - thread is a **basic** unit of CPU execution (known as LightWeight Process(LWP))
+
+  - process (HeavyWeight process(HWP)) has a **single** thread of control
+
+  - multithreaded process contains several **different** flows of control within the **same** address space
+
+  - Thread
+
+  	- has
+
+  		- thread ID
+  		- program counter
+  		- register set
+  		- stack
+
+  	- share
+
+  		- code section
+
+  		- data section
+
+  		- other OS resources(file and signals)
+
+  			![](/review/OS/1555762382921.png)
+
+  			![](OS/1555762382921.png)
+
+  		- Benefits
+
+  			- responsiveness
+  			- resource sharing
+  			- economy(low cost in overhead of creating and context-switch)
+  			- Utilization of multiprocessor architectures
+  		
+  	- User Threads
+  	
+  		- user threads are supported above the kernel. The kernel is **not** aware of user threads
+  	
+  		- Library provides all support for thread creation, termination, joining and scheduling
+  	
+  		- more efficient(no kernel intervention)
+  	
+  		- if one thread is blocked, every other threads of the same process are also blocked(containing process is blocked)
+  	
+  			![](/review/OS/1555764073008.png)
+  	
+  			![](OS/1555764073008.png)
+  	
+  		- Kernel Threads
+  	
+  			- kernel threads are usually **slower** than the user threads
+  	
+  			- blocking one thread will **not** cause other threads of the same process to block
+  	
+  			- the kernel can schedule threads on different processors(in a multiprocessor environment)
+  	
+  				![](/review/OS/1555764320920.png)
+  	
+  				![](OS/1555764320920.png)
+  	
+  				**Pr.**
+  	
+  				1. 进程和线程之间的区别和联系
+  				2. 用户级线程和内核级线程的区别
+
+- Thread Libraries
+
+- Threading Issues
+
+- Operating System Examples
+
 🚧正在施工中……🚧
 
 
