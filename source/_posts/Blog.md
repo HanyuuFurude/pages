@@ -38,8 +38,14 @@ tags: techlog
 > 已经解决【√】
 
 ## Contents
+
+~~🚧由于最近事务繁忙，该文档很久未更新，择日更新🚧~~
+
+🚧我们即将更换网页样式，此文档不再更新，在更新之前您还可以查看时间线来浏览所有文章🚧
+
 ***
 ### Course
+
 * [神奇链接（只有collaborator才能看到哦~）感谢一姬同学的commit](https://github.com/HanyuuFurude/cw23)
 
 ### Tensorflow
@@ -73,7 +79,6 @@ tags: techlog
 * [范数](/deeplearning/norm/)
 * [拉格朗日乘子法](/deeplearning/LagrangeMultiplier/)
 * [再生希尔伯特空间（转载）](/deeplearning/RKHS/)
-* []
 
 ### Others
 * [vim操作参考](/Others/vim/)
@@ -102,7 +107,7 @@ tags: techlog
 # Privacy Statement:
 	We do not collect any of your data and do not leave you cookies, nor do I count, record your IP address, browse the length of time, link clicks and other information. However, this does not mean that third parties do not collect your browsing history and other data. If you do not want to be collected by a third party this information, please do the relevant protective measures.
 	Continue browsing as you agree to this agreement.
-
+	
 	 Wish you a pleasant visit~
 
 By:Hanyuu

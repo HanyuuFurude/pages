@@ -206,9 +206,9 @@ categories: review
 
 			*   UNIX examples
 
-				*   ```fork()``` :create new process
+				*   fork() :create new process
 
-				*   ```exec()``` :used after a fork to replace the process’s memory space with a new program
+				*   exec() :used after a fork to replace the process’s memory space with a new program
 
 					![](/review/OS/1555737064290.png)
 
@@ -235,10 +235,10 @@ categories: review
 
 			*   Process Termination
 
-				*   ```exit()``` process executes last statement and asks the operating system to delete it
+				*   exit()  process executes last statement and asks the operating system to delete it
 				    *   output data from child to parent (via wait)
 				    *   Process’s resources are deallocated by OS
-				*   ```abort()``` parent may terminate execution of children process
+				*   abort()  parent may terminate execution of children process
 				    *   child has exceeded allocated resources
 				    *   task assigned to child is no longer required
 				    *   parent is exiting <small>^*^not all of the operation system supports **Cascading termination(级联终止)**</small>
@@ -276,8 +276,8 @@ categories: review
 
 			- MPS has two operations
 
-				- ```send()```
-				- ```receive()```
+				- send()
+				- receive()
 
 			- communication link
 
@@ -287,8 +287,8 @@ categories: review
 
 				- direct communication
 
-					- ```send(P,message)``` send a message to process P
-					- ```receive(Q,message)``` receive a message from process Q
+					- send(P,message) send a message to process P
+					- receive(Q,message)  receive a message from process Q
 
 				- indirect communiction
 
@@ -323,17 +323,7 @@ categories: review
 
 # Chapter 4 Threads
 
-```
-正在更(hua)新(shui)中...
-_   _       ___   __   _  __    __  _   _   _   _  
-| | | |     /   | |  \ | | \ \  / / | | | | | | | | 
-| |_| |    / /| | |   \| |  \ \/ /  | | | | | | | | 
-|  _  |   / / | | | |\   |   \  /   | | | | | | | | 
-| | | |  / /  | | | | \  |   / /    | |_| | | |_| | 
-|_| |_| /_/   |_| |_|  \_|  /_/     \_____/ \_____/ 
-```
-
-
+🚧正在施工中……🚧
 
 
 
