@@ -335,64 +335,97 @@ categories: review
 
   - Thread
 
-  	- has
+    - has
 
-  		- thread ID
-  		- program counter
-  		- register set
-  		- stack
+      - thread ID
+      - program counter
+      - register set
+      - stack
 
-  	- share
+    - share
 
-  		- code section
+      - code section
 
-  		- data section
+      - data section
 
-  		- other OS resources(file and signals)
+      - other OS resources(file and signals)
 
-  			![](/review/OS/1555762382921.png)
+      	![](/review/OS/1555762382921.png)
 
-  			![](OS/1555762382921.png)
+      	![](OS/1555762382921.png)
 
-  		- Benefits
+      - Benefits
 
-  			- responsiveness
-  			- resource sharing
-  			- economy(low cost in overhead of creating and context-switch)
-  			- Utilization of multiprocessor architectures
-  		
-  	- User Threads
-  	
-  		- user threads are supported above the kernel. The kernel is **not** aware of user threads
-  	
-  		- Library provides all support for thread creation, termination, joining and scheduling
-  	
-  		- more efficient(no kernel intervention)
-  	
-  		- if one thread is blocked, every other threads of the same process are also blocked(containing process is blocked)
-  	
-  			![](/review/OS/1555764073008.png)
-  	
-  			![](OS/1555764073008.png)
-  	
-  		- Kernel Threads
-  	
-  			- kernel threads are usually **slower** than the user threads
-  	
-  			- blocking one thread will **not** cause other threads of the same process to block
-  	
-  			- the kernel can schedule threads on different processors(in a multiprocessor environment)
-  	
-  				![](/review/OS/1555764320920.png)
-  	
-  				![](OS/1555764320920.png)
-  	
-  				**Pr.**
-  	
-  				1. 进程和线程之间的区别和联系
-  				2. 用户级线程和内核级线程的区别
+      	- responsiveness
+      	- resource sharing
+      	- economy(low cost in overhead of creating and context-switch)
+      	- Utilization of multiprocessor architectures
+
+    - User Threads
+
+      - user threads are supported above the kernel. The kernel is **not** aware of user threads
+
+      - Library provides all support for thread creation, termination, joining and scheduling
+
+      - more efficient(no kernel intervention)
+
+      - if one thread is blocked, every other threads of the same process are also blocked(containing process is blocked)
+
+        ![](/review/OS/1555764073008.png)
+
+        ![](OS/1555764073008.png)
+
+      - Kernel Threads
+
+        - kernel threads are usually **slower** than the user threads
+
+        - blocking one thread will **not** cause other threads of the same process to block
+
+        - the kernel can schedule threads on different processors(in a multiprocessor environment)
+
+          ![](/review/OS/1555764320920.png)
+
+          ![](OS/1555764320920.png)
+
+          **Pr.**
+
+          1. 进程和线程之间的区别和联系
+          2. 用户级线程和内核级线程的区别
+
+    - Multithreading models
+
+        - many to one 
+
+            - only one thread in the one process can access the kernel at a time
+            - true concurrency is not gained
+
+            ![](/review/OS/1555767057845.png)
+
+            ![](OS/1555767057845.png)
+
+        - one to one
+
+            - each user-level thread maps to kernel thread
+
+            - providing more concurrency
+
+            - restricting the number of threads supported by the system
+
+                ![](/review/OS/1555767300046.png)
+
+                ![](OS/1555767300046.png)
+
+        - many to many
+
+            - allow many user level threads to be mapped to many kernel threads
+
+                ![](/review/OS/1555767517744.png)
+
+                ![](OS/1555767517744.png)
 
 - Thread Libraries
+
+- 
 
 - Threading Issues
 
