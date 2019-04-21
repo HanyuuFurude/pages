@@ -1,5 +1,5 @@
 ---
-title: 操作系统原理总结
+![](OS/1555849707110.png)title: 操作系统原理总结
 date: 2019-04-12 23:03:06
 cover: https://raw.githubusercontent.com/HanyuuFurude/TechBlog/master/res/rm.png
 tags: 
@@ -425,41 +425,41 @@ categories: review
 
 - Thread Libraries
 
-	- status
-	- 
+  - status
+  - 
 
-	``` C++
-	int pthread_create(tid,attr,function,arg);
-	/*
-	 * pthread_t *tid
-	 	handle of created thread
-	 * const pthread_attr_t *attr
-	 	attribes of thread to be created
-	 * void *(*function)(void)
-	 	function to be mapped to thread
-	 * void * arg
-	 	single argument to function
-	 */
-	int pthread_join(tid,val_ptr);
-	/*
-	 * pthread_t *tid
-	 	handle of joinable thread
-	 * void ** var_ptr
-	 	exit value rturn by joined thread
-	 */
-	void pthread_exit(void *status);
-	int pthread_cancel(pthread_t thread);	//terminated immediately
-	int pthread_kill(pthread_t thread,int sig);
-	```
+  ``` C++
+  int pthread_create(tid,attr,function,arg);
+  /*
+   * pthread_t *tid
+   	handle of created thread
+   * const pthread_attr_t *attr
+   	attribes of thread to be created
+   * void *(*function)(void)
+   	function to be mapped to thread
+   * void * arg
+   	single argument to function
+   */
+  int pthread_join(tid,val_ptr);
+  /*
+   * pthread_t *tid
+   	handle of joinable thread
+   * void ** var_ptr
+   	exit value rturn by joined thread
+   */
+  void pthread_exit(void *status);
+  int pthread_cancel(pthread_t thread);	//terminated immediately
+  int pthread_kill(pthread_t thread,int sig);
+  ```
 
-	- CreateThread
-	- GetCurrentThreadId
-	- GetCurrentThread
-	- SuspendThread/ResumeTread
-	- ExitThread
-	- TerminateThread
-	- GetExitCodeThread
-	- GetThreadTimes
+  - CreateThread
+  - GetCurrentThreadId
+  - GetCurrentThread
+  - SuspendThread/ResumeTread
+  - ExitThread
+  - TerminateThread
+  - GetExitCodeThread
+  - GetThreadTimes
 
 - Threading Issues
 
@@ -469,23 +469,75 @@ categories: review
 
 - **Pr.**
 
-	- 信号机制和中断机制的异同
+  - 信号机制和中断机制的异同
 
 - Thread Pools
 
-	- advantages
-		- faster to service a request(save the time to create new thread)
-		- allow the number of threads in the application to be bound to the size of the pool
+  - advantages
+  	- faster to service a request(save the time to create new thread)
+  	- allow the number of threads in the application to be bound to the size of the pool
 
 - Thread specific data
 
-	- threads belonging to a process share the data of the process
-	- allows each thread to have its own copy of data
-	- when using a thread pool, each thread may be assigned a unique identifier
+  - threads belonging to a process share the data of the process
+  - allows each thread to have its own copy of data
+  - when using a thread pool, each thread may be assigned a unique identifier
 
 - Scheduler activations
 
 - **upcalls**
+
+# Chapter 5 CPU Scheduling
+
+*   Maximum CPU utilization obtained with multiprogramming
+
+*   The success of CPU scheduling depends on an property of processes:**CPU-I/O Burst Cycle**
+
+    *   process execution consists of a **cycle** of CPU execution and I/O wait.
+
+*   CPU-bound
+
+    *   a few very long CPU bursts
+
+*   I/O-bound
+
+    *   many short CPU bursts
+
+    ![](/review/OS/1555849707110.png)
+
+    ![](OS/1555849707110.png)
+
+*   When the CPU is idle, the OS must select another ready process to run
+
+*   This selection process is carried out by the **short-term scheduler**
+
+*   The CPU scheduler selects a process from **the ready queue** and allocates the CPU to it
+
+*   There are many ways to organize the ready queue<small>(e.g. FIFO)</small>
+
+    ![](/review/OS/1555850618923.png)
+
+    ![](OS/1555850618923.png)
+
+*   Circumstances that scheduling may take place
+
+    *   A process switches from the running state to the terminated state(finished)
+
+    *   A process switches from the running state to the wait state(e.g. IO operation)
+
+        ↑主动操作↑ 非抢占式调度
+
+        ---
+
+        ↓被动中止↓ 抢占式调度 → 同步机制
+
+    *   A process switched from the running state to the ready state(e.g. a interrupt occurs)
+
+    *   A process switches from the wait state to the ready state(e.g. I/O completion)
+
+    *   A process switches from the new state to ready state(e.g. a higher priority process ready)
+
+    *   
 
 🚧正在施工中……🚧
 
