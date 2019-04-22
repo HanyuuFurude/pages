@@ -1025,13 +1025,128 @@ categories: review
 		}while(1);
 		```
 
-		
-
 	- Readers and Writers Problem
+
+		- Reader first
+		- Writer first
+
+		``` C++
+		//Shared data
+		int readcount;
+		semaphore wrt = 1,mutex = 1;
+		int readcount = 0;
+		do
+		{
+		    wait(wrt);
+		    //writing
+		    signal(wrt);
+		}while(1);
+		do		//Error: 写者饥饿问题
+		{
+		    wait(mutex);
+		    readcount++;
+		    if(readcount == 1)
+		        wait(wrt);
+		    signal(mutex);
+		    //reading
+		    wait(mutex);
+		    readcount--;
+		    if(readcount == 0)
+		        signal(wrt);
+		    signal(mutex);
+		}
+		```
 
 	- Dining-Philosophers Problem
 
-	- 
+	- 过独木桥问题
+
+		``` 
+		//Shared data
+		int countA = 0;	//A方向上已在独木桥上的行人数目
+		int countB = 0;	//B方向上已在独木桥上的新人数目
+		semaphore MA = 1;	//countA的互斥锁
+		semaphore MB = 1;	//countB的互斥锁
+		semaphore mutex = 1;	//实现互斥使用
+		```
+
+		- A方向过桥
+
+			``` C++
+			do
+			{
+			    wait(MA);
+			    countA++;
+			    if (count == 1)
+			    {
+			        wait(mutex);
+			    }
+			    signal(MA);
+			    //过桥
+			    wait(MA);
+			    countA--;
+			    if(countA == 0)
+			    {
+			        signal(mutex);
+			    }
+			    signal(MA);
+			}while(1);
+			```
+
+- Monitors (管程)
+
+	- High-level synchronization construct that allows the safe sharing of an abstract data type among concurrent processes
+
+		``` C++
+		monitor monitor-name
+		{
+			shared variable declarations
+			proceudre body P1()
+		    {
+		    	//...
+		    }
+		    	proceudre body P2()
+		    {
+		    	//...
+		    }
+		    //...
+		    {//initialization code}
+		}
+		```
+
+	- no more than one process can be executing within a monitor
+
+	- when a process calls a monitor procedure and the monitor has a process running, the caller will be blocked outside the monitor
+
+	- Mutual exclusion is guaranteed with in a monitor
+
+		![](/review/OS/1555948188580.png)
+
+		![](OS/1555948188580.png)
+
+- Condition variables
+
+	- x,y
+
+		- x.wait() means that the process invoking this operation is suspended until another process invokes x.signal();
+		- x.signal() operation resumes exactly one suspended process. If no process is suspended, the signal() operation has no effect
+
+		![](/review/OS/1555948399247.png)
+
+		![](OS/1555948399247.png)
+
+		| Semaphores                                                   | Condition Variables                                          |
+		| ------------------------------------------------------------ | ------------------------------------------------------------ |
+		| Can be used anywhere, but not in a monitor                   | Can only be used in monitors                                 |
+		| wait() does **not** always block its caller                  | wait() **always** blocks its caller                          |
+		| signal() either releases a process, or increase the semaphore counter | signal() either releases a process ,or the signal is **lost** as if it never occurs |
+		| If signal() release a process, the caller and the release **both** continue | If signal() release a process, either the caller or the released continues, but **not** both |
+
+		-  管程是公用数据结构，进程是私有数据结构
+		- 管程集中管理共享变量上的同步操作，临界区分散在每个进程中
+		- 管程管理共享资源，进程占用系统资源和实现系统并发性
+		- 管程被欲使用的共享资源的进程调用，管程和调用它的进程不能并发工作，进程之间能并发工作
+		- 管程是语言或操作系统的成分，不必创建或撤销，进程有生命周期，有创建有消亡
 
 ---
 
