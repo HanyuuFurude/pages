@@ -537,7 +537,83 @@ categories: review
 
     *   A process switches from the new state to ready state(e.g. a higher priority process ready)
 
-    *   
+    *   Preemptive(抢占式)
+
+        *   cost associated with access to **shared data**
+        *   When the kernel is in its **critical** section modifying some important data .
+        *   special attention to situation 
+
+    *   Non-preemptive
+
+        *   scheduling occurs when a process **voluntarily terminates**(主动结束) (case1)or enters the wait state(case2)
+        *   simple but very inefficient
+
+    **Pr.**
+
+    ​	对于计算中心，抢占式调度和非抢占式调度哪一种比较适合
+
+    -   Dispatcher(调度) module
+        -   switching context
+        -   switching to user mode
+        -   jumping to the proper location in the user program to restart that program
+    -   Dispatch latency
+        -   the dispatcher should be as fast as possible
+
+*   Scheduling criteria
+
+    *   CPU utilization
+
+        *   keep the CPU as busy as possible
+        *   lightly|40%|-|90%|heavily
+
+    *   Throughput(吞吐)
+
+        *   higher throughput means more jobs get done
+
+        <small>吞吐量和CPU利用率有相关性但并没有直接关系</small>
+
+    *   Turnaround time
+
+        *   The time period from job submission to completion is the turnaround time
+
+        $$t_{turnaround}=\\t_{waitingTimeBeforeEnteringTheSystem}+\\ t_{waitingTImeInTheReadyQueue}+\\t_{waitingTImeInAllOtherEvents}+\\t_{timeTheProcessActuallyRunningOnTheCPU}$$
+
+*   Waiting time
+
+    *   time in ready queue
+
+*   Response time
+
+    *   the time form the submission of a request
+
+*   Optimization Criteria
+
+    *   MAX CPU utilization
+    *   MAX throughtput
+    *   MIN turnaround time(average)
+    *   MIN waiting time
+    *   MIN response time
+
+*    为什么需要CPU调度
+
+    大多数任务是CPU和I/O交替使用，
+
+    导致CPU和I/O至少有一个空闲，
+
+    通过调度让需要执行I/O的任务去执行I/O。
+
+    把CPU给需要CPU的任务运行。
+
+*   **Scheduling Algorithms**
+
+    *   First-Come-First-Served Scheduling (FCFS)
+        *   can easily implemented using a queue
+        *   not preemptive
+    *   Short-Job-First Scheduling (SJF)
+    *   Priority Shceduling
+    *   Round_Robin Scheduling (轮询)
+    *   Multilevel Queue Scheduling
+    *   Multilevel Feedback Queue Shceduling
 
 🚧正在施工中……🚧
 
