@@ -1,5 +1,5 @@
 ---
-![](OS/1555849707110.png)title: 操作系统原理总结
+title: 操作系统原理总结
 date: 2019-04-12 23:03:06
 cover: https://raw.githubusercontent.com/HanyuuFurude/TechBlog/master/res/rm.png
 tags: 
