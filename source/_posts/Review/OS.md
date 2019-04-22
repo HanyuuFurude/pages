@@ -57,7 +57,7 @@ categories: review
 		*   **共享性Sharing**
 		*   **虚拟性Virtual**
 		*   **异步性Asynchronism**
-		*   提高CPU利用率，充分发挥并发性：**程序之间、设备之间、设备与CPU之间**均**并发工作**
+		*   提高CPU利用率，充分发挥并发性：**程序之间、设备之间、设备与CPU之间**均**并发**
 
 	*   Pr：
 
@@ -609,11 +609,123 @@ categories: review
     *   First-Come-First-Served Scheduling (FCFS)
         *   can easily implemented using a queue
         *   not preemptive
+        *   convoy effect (护航效应)
+        *   troublesome for time-sharing systems
+
     *   Short-Job-First Scheduling (SJF)
-    *   Priority Shceduling
-    *   Round_Robin Scheduling (轮询)
-    *   Multilevel Queue Scheduling
-    *   Multilevel Feedback Queue Shceduling
+
+        *   sorted in next CPU burst length
+        *   can be nonpreemptive and preemptive
+        *   **minimum average waiting time for a given set of process**
+        *   predict CPU burst: exponential averaging
+        *   long jobs may meet **starvation**!!!
+
+    *   Priority Scheduling
+        *   each process has a **priority**
+
+        *   priority may be determined internally or externally
+            *   internal priority
+                *   time limits
+                *   memory requirement
+                *   number of files
+                *   etc.
+            *   external priority
+                *   importance of the process (not controlled by the OS)
+
+        *   starvation/Indefinite block
+
+            a lower priority may never have a chance to run
+
+            *   Aging
+                *   gradually increase the priority of process what wait in the system for a long time
+
+    *   Round_Robin Scheduling (RR)(轮询)
+
+        *   designed for time-sharing systems
+        *   each process is assigned a time quantum/slice
+        *   If the process uses CPU for less than one time quantum, it will release the CPU voluntarily (主动退出)
+        *   when one time quantum is up , that process is preempted by the scheduler and moved to the tail of the list
+        *   Typically, higher average time than SJF, better response time
+        *   time quantum is too large → FCFS
+        *   time quantum is to small → processor sharing (并发)
+            *   *shorter time quantum means more context switches*
+        *   in general, 80% of the CPU bursts should be shorter than the time quantum
+        *   
+
+    *   Multilevel Queue Scheduling (多级队列)
+
+        *   partitioned into separate queues
+
+            *   foreground (interactive)
+            *   background (batch)
+
+        *   Each process is assigned permanently to one queue based on some properties of the process
+
+        *   Each queue has its own scheduling algorithm
+
+            *   foreground -  RR
+
+            *   background -FCFS
+
+                ![](/review/OS/1555906275098.png)
+
+            ![](OS/1555906275098.png)
+
+            *   Scheduling must be done between the queues
+                *   Fixed priority scheduling (possibility of starvation)
+                *   Time slice
+                    *   each queue gets a certain amount of CPU time which it can schedule amongst its processes
+
+    *   Multilevel Feedback Queue Scheduling
+
+        *   allows process to move between queues
+
+        *   aging can be implemented this way
+
+        *   If a process use more/less CPU time, it is moved to a queue of lower/higher priority → I/O/CPU-bound process will be in higher/lower priority queues
+
+        *   exp
+
+            ![](/review/OS/1555907839535.png)
+
+            ![](OS/1555907839535.png)
+
+        -   number of queues
+        -   scheduling algorithms for each queue
+        -   method used to determine when to upgrade a process
+        -   method used to determine when to demote a process
+        -   method used to determine which queue a process will enter when that process needs service
+
+*   Multiple-Processor Scheduling
+
+    *   Homogeneous(同构) processors
+    *   Load balancing
+        *   push migration
+        *   pull migration
+    *   Asymmetric multiprocessing (非平衡处理)
+        *   only on processor accesses the system data
+            *   alleviating(降低) the need for data shring
+    *   Symmetric multiprocessing (SMP)
+        *   two processors do **not** choose the same process
+    *   Processor Affinity (侵核)
+        *   most SMP systems **try** to avoid migration of processes from one processor to  another
+            *   Soft/Hard Affinity (执行过程中可以/不可以侵核)
+
+*   Real-Time Scheduling
+
+    *   Hard real-time systems
+    *   the scheduler either **admits** a process and guarantees that the process will complete on-time, or **reject** the request (resource reservation)
+    *   secondary storage and virtual memory will cause unavoidable delay
+    *   Hard real-time systems usually have special software on special hardware
+
+*   Soft real-time systems
+
+    *   easily doable(可行) within a general system
+    *   may cause unfair resource allocation and longer delay(starvation) for noncritical tasks.
+    *   the CPU scheduler must **prevent aging** to occur(critical tasks may have lower priority)
+    *   **The dispatch latency must be small**
+
+---
 
 🚧正在施工中……🚧
 
@@ -622,3 +734,4 @@ categories: review
 
 
 ​		
+
