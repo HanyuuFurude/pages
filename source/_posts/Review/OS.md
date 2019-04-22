@@ -725,6 +725,19 @@ categories: review
     *   the CPU scheduler must **prevent aging** to occur(critical tasks may have lower priority)
     *   **The dispatch latency must be small**
 
+*   Priority Inversion
+
+    *   a high-priority process needs to access the data that is currently being accessed by a low-priority process → The high-priority process is blocked by the low-priority process
+    *   priority-inheritance protocol
+
+*   Thread Scheduling
+
+    *   User-level threads
+        *   thread library
+    *   Kernel-level threads
+        *   scheduled by OS
+        *   
+
 ---
 
 🚧正在施工中……🚧
