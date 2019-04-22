@@ -736,7 +736,302 @@ categories: review
         *   thread library
     *   Kernel-level threads
         *   scheduled by OS
-        *   
+    *   user-level threads must ultimately be mapped to an associated kernel-level thread
+    *   Local scheduling → User-level Thread
+    	*   Process-contention Scope (PCS)
+    *   Global Scheduling → Kernel-level Thread
+    	*   System-contention Scope (SCS)
+    
+*   Algorithm Evaluation
+
+	*   Deterministic modeling (Analytic evaluation) 确定情况下 的情形证明
+
+	*   Queueing models 队列模型
+
+	*   Simulations 仿真
+
+	*   Implementation 证明
+
+		<small>从上往下证明力越强，越难证明</small>
+
+*   Operating System 
+
+	*   Scheduling threads using **preemptive** and **priority-based** scheduling algorithms (Real time, system, time sharing, interactive)
+	*   The default scheduling class for a process is time sharing (multilevel feedback queue)
+
+# Chapter 6 Process Synchronization
+
+- Bounded-buffer
+
+	``` c++
+	//Shared data
+	#define BUFFER_SIZE 10
+	typedef struct
+	{
+	    //...
+	} item;
+	item buffer[BUFFER_SIZE];
+	int in = 0;
+	int out = 0;
+	int counter = 0;
+	
+	//Producer process
+	item nextProduced;
+	while(1)
+	{
+	    while(counter == BUFFER_SIZE);
+	    	//do nothing
+	    buffer[in] = nextProduced;
+	    in = (in + 1) % BUFFER_SIZE;
+	    counter++;    
+	}
+	
+	//Consumer process
+	item nextConsumed;
+	while(1)
+	{
+	    while(counter == 0)
+	        //do nothing
+	    nextConsumed = buffer[out];
+	    out = (out + 1) % BUFFER_SIZE;
+	    counter--;
+	}
+	```
+
+- **Atomic operation**
+
+	- counter++
+	- counter— 
+
+- Race condition
+
+	- two or more processes/thread access and manipulate the same data concurrently
+	- the outcome of the execution depends on the particular order in which the access takes place
+	- To prevent race conditions, concurrent processes must be synchronized
+
+- The Critical-Section Problem
+
+	- Each process has a code segment, called critical section
+
+	- **Problem**: ensure that when one process is executing in its critical section, no other process is allowed to execute in its critical section
+
+	- The critical-section problem is to design a protocol that processes can use to cooperate
+
+		┌────────────┐
+
+		|    entry section      |
+
+		├────────────┤
+
+		|    critical section    |
+
+		├────────────┤
+
+		|       exit section      |
+
+		├────────────┤
+
+		|remainder section |
+
+		└────────────┘
+
+		**critical section must run in a mutually exclusive way.**
+
+- Solution to Critical-Section Problem
+
+	- Mutual Exclusion (互斥、忙等) → 防止冲突
+	- Progress (空闲让进) → 进展性
+	- Bounded Waiting (有限等待) → 进展性
+		- <small>防止饥饿，让权等待，多CPU：死锁</small>
+	- **the solution cannot depend on relative speed of processes and scheduling policy**
+	- Mutual Exclusion
+
+- Bakery Algorithm
+
+	``` c++
+	//shared data
+	boolean choosing[n];	//false
+	int number[n];			//0
+	do
+	{
+	    choosing[i] = true;
+	    number[i] = max(number[0],number[1],...,number[n-1])+1;
+	    choosing[i] = false;
+	    for(j = 0; j < n; ++j)
+	    {
+	        while(choosing[j]);
+	        while((number[j] != 0)&&((number[j],j)<(number[i],i)));
+	    }
+	    //critical section
+	    number[i] = 0;
+	    //remainder section
+	}while(1)
+	```
+
+- Interrupt Disabling
+
+	- disable interrupts → critical section → enable interrupts
+	- When interrupts are disabled, no context switch will occur in a critical section
+	- Infeasible in a multiprocessor system because all CPUs must be informed
+	- Some feature that depend on interrupts (e.g. clock) may not work properly
+
+- Mutual Exclusion (互斥锁)
+
+	- TestAndSet
+
+		``` c++
+		boolean TestAndSet(boolean &target)
+		{
+			booean rv = &target;
+		    &target = true;
+		    return rv;
+		}
+		```
+
+		``` c++
+		//shared data
+		boolean lock = false;
+		//Process P
+		do
+		{
+		    while(TestAndSet(lock));
+		    //critical section
+		    lock = false;
+		    //remainder section
+		}
+		```
+
+- Swap
+
+	- **atomically** swap two variables
+
+		``` c++
+		void Swap(boolean &a,boolean &b)
+		{
+		    boolean temp = &a;
+		    &a = &b;
+		    &b = temp;
+		}
+		```
+
+		``` C++
+		//Global shared data
+		boolean lock;	//false
+		//Local variable for each process
+		boolean key;
+		Process Pi
+		do
+		{
+			key = true;
+			while(key == true)
+		    {
+		    	Swap(lock,key);
+		    }
+		    //critical section
+		    lock = false;
+		    //remainder section
+		}
+		```
+
+- Semaphores
+
+	``` c++
+	wait(S)
+	{
+		while(S <= 0);
+			--S;
+	}
+	
+	signal(S)
+	{
+	    ++S:
+	}
+	```
+
+	- Count semaphore
+	- Binary semaphore (mutex locks)
+
+- busy waiting (Spinlock)
+
+- block itself (阻塞方法，使用PCB唤醒)
+
+	- Define a semaphore as a record
+
+		```
+		typedef struct
+		{
+		    int value;
+		    struct process *L;	//waiting queue
+		}semaphore;
+		```
+
+		- block()
+		- wakeup(P)
+
+		``` c++
+		wait(S)
+		{
+		    S.value--;
+		    if (s.value < 0)
+		    {
+		        //add this process to S.L;
+		        block();
+		    }
+		}
+		signal(S)
+		{
+			S.value++;
+		    if(S.value <= 0)
+		    {
+		        //remove a process P from S.L;
+		        wakeup(P);
+		    }
+		}
+		```
+
+		
+
+		- if the semaphore is negative, its magnitude is the number of process waiting on that semaphore
+		- Busy waiting has not been **completely** eliminated
+		- furthermore, we have limited busy waiting to the critical sections of the wait() and signal() operations
+
+- Deadlock and Starvation
+
+	<small>临界资源、同步关系</small>
+
+	- Bounded-Buffer Problem
+
+		``` C++
+		//Shared data
+		Semaphore full = 0,empty = n,mutex = 1;
+		do	//Producer
+		{
+		    //produce an item in nextP
+		    wait(empty);
+		    wait(mutex);
+		    //add nextP to buffer
+		    signal(mutex);
+		    signal(full);
+		}while(1);
+		
+		do	//Consumer
+		{
+		    wait(full);
+		    wait(mutex);
+		    //remove an item from buffer to nextC
+		    signal(mutex);
+		    signal(empty);
+		    //consume the item in nextC
+		}while(1);
+		```
+
+		
+
+	- Readers and Writers Problem
+
+	- Dining-Philosophers Problem
+
+	- 
 
 ---
 
