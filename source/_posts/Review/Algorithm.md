@@ -20,7 +20,7 @@ categories: review
 
 -   渐近分析记号
     -   渐近上界$O$
-    -   渐进下界$\Omega​$
+    -   渐进下界$\Omega$
     -   紧渐进界$\Theta$
     -   非紧上界$o$
     -   非紧下界$\omega$
@@ -95,8 +95,8 @@ categories: review
         -   主定理
 
             -   设$a\geq1$,$b>1$是常数，$f(n)$为函数，$T(n)$ 为非负数，且$T(n)=aT(\frac{n}{b})+f(n)$，则
-                1.  若$f(n)=O(n^{log_ba-\epsilon}))​$,存在$\epsilon>0​$是常数，则有$T(n)=\Theta(n^{log_ba})​$
-                2.  若$f(n)=O(n^{log_ba}))​$，则有$T(n)=\Theta(n^{log_ba}log\ n)​$
+                1.  若$f(n)=O(n^{log_ba-\epsilon}))$,存在$\epsilon>0$是常数，则有$T(n)=\Theta(n^{log_ba})$
+                2.  若$f(n)=O(n^{log_ba}))$，则有$T(n)=\Theta(n^{log_ba}log\ n)$
                 3.  若$f(n)=O(n^{log_ba+\epsilon}))$，存在$\epsilon>0$是常数，**且对所有充分大的n有$af(\frac{n}{b})\leq cf(n)$**，c<1是常数，则有$T(n)=\Theta(f(n))$
 
         -   Strassen矩阵乘法
@@ -112,12 +112,200 @@ categories: review
 ## 动态规划
 
 -   最优化问题
+
 -   最优性原理
     -   每一阶段的决策仅依赖前一阶段产生的状态
     -   最优子结构性质
+    
 -   解空间、约束条件、可行解、目标函数、最优解、最优化问题
+
 -   重叠子问题
+
 -   无后效
+
 -   找零问题
+
 -   使用表记录所有已经解决的子问题
+
+-   最短路径问题
+
+-   矩阵连乘问题
+
+	```
+	//3d1-1 重叠子问题的递归最优解
+	//A1 30*35 A2 35*15 A3 15*5 A4 5*10 A5 10*20 A6 20*25
+	//p[0-6]={30,35,15,5,10,20,25}
+	#include "stdafx.h"
+	#include <iostream> 
+	using namespace std; 
+	 
+	const int L = 7;
+	 
+	int RecurMatrixChain(int i,int j,int **s,int *p);//递归求最优解
+	void Traceback(int i,int j,int **s);//构造最优解
+	
+	int main()
+	{
+		int p[L]={30,35,15,5,10,20,25};
+	    int **s = new int *[L];
+		for(int i=0;i<L;i++)  
+	    {  
+			s[i] = new int[L];  
+	    } 
+	
+		cout<<"矩阵的最少计算次数为："<<RecurMatrixChain(1,6,s,p)<<endl;
+		cout<<"矩阵最优计算次序为："<<endl;
+		Traceback(1,6,s);
+		return 0;
+	}
+	
+	int RecurMatrixChain(int i,int j,int **s,int *p)
+	{
+		if(i==j) return 0;
+		int u = RecurMatrixChain(i,i,s,p)+RecurMatrixChain(i+1,j,s,p)+p[i-1]*p[i]*p[j];
+		s[i][j] = i;
+	
+		for(int k=i+1; k<j; k++)
+		{
+			int t = RecurMatrixChain(i,k,s,p) + RecurMatrixChain(k+1,j,s,p) + p[i-1]*p[k]*p[j];
+			if(t<u)
+			{
+				u=t;
+				s[i][j]=k;
+			}
+		}
+		return u;
+	}
+	
+	void Traceback(int i,int j,int **s)
+	{
+		if(i==j) return;
+		Traceback(i,s[i][j],s);
+		Traceback(s[i][j]+1,j,s);
+		cout<<"Multiply A"<<i<<","<<s[i][j];
+		cout<<" and A"<<(s[i][j]+1)<<","<<j<<endl;
+	}
+	
+	```
+
+	
+
+``` c++
+
+//3d1-2 矩阵连乘 备忘录递归实现
+//A1 30*35 A2 35*15 A3 15*5 A4 5*10 A5 10*20 A6 20*25
+//p[0-6]={30,35,15,5,10,20,25}
+#include "stdafx.h"
+#include <iostream>
+using namespace std;
+const int L = 7;
+int LookupChain(int i, int j, int **m, int **s, int *p);
+int MemoizedMatrixChain(int n, int **m, int **s, int *p);
+void Traceback(int i, int j, int **s); //构造最优解
+int main()
+{
+	int p[L] = {30, 35, 15, 5, 10, 20, 25};
+	int **s = new int *[L];
+	int **m = new int *[L];
+	for (int i = 0; i < L; i++)
+	{
+		s[i] = new int[L];
+		m[i] = new int[L];
+	}
+	cout << "矩阵的最少计算次数为：" << MemoizedMatrixChain(6, m, s, p) << endl;
+	cout << "矩阵最优计算次序为：" << endl;
+	Traceback(1, 6, s);
+	return 0;
+}
+int MemoizedMatrixChain(int n, int **m, int **s, int *p)
+{
+	for (int i = 1; i <= n; i++)
+	{
+		for (int j = 1; j <= n; j++)
+		{
+			m[i][j] = 0;
+		}
+	}
+	return LookupChain(1, n, m, s, p);
+}
+int LookupChain(int i, int j, int **m, int **s, int *p)
+{
+	if (m[i][j] > 0)
+	{
+		return m[i][j];
+	}
+	if (i == j)
+	{
+		return 0;
+	}
+	int u = LookupChain(i, i, m, s, p) + LookupChain(i + 1, j, m, s, p) + p[i - 1] * p[i] * p[j];
+	s[i][j] = i;
+	for (int k = i + 1; k < j; k++)
+	{
+		int t = LookupChain(i, k, m, s, p) + LookupChain(k + 1, j, m, s, p) + p[i - 1] * p[k] * p[j];
+		if (t < u)
+		{
+			u = t;
+			s[i][j] = k;
+		}
+	}
+	m[i][j] = u;
+	return u;
+}
+void Traceback(int i, int j, int **s)
+{
+
+	if (i == j)
+		return;
+	Traceback(i, s[i][j], s);
+	Traceback(s[i][j] + 1, j, s);
+	cout << "Multiply A" << i << "," << s[i][j];
+	cout << " and A" << (s[i][j] + 1) << "," << j << endl;
+}
+
+```
+
+- 最长公共子序列
+- 背包问题
+
+``` c++
+#include<iostream>
+#include<cstring>
+using namespace std;
+
+int main()
+{
+    int N;//物品个数 5
+    int V;//背包容量 15
+    cin >> N >> V;
+    int weight[N + 1];// 5 4 7 2 6
+    int value[N + 1];// 12 3 10 3 6
+    weight[0] = value[0] = 0;
+    int maxTotalValue[V + 1]; //maxTotalValue[i]:背包已装容量为i时,背包里所装物品的最大总价值
+    memset(maxTotalValue, 0, sizeof(maxTotalValue));
+    for(int i = 1; i <= N; i++)
+        cin >> weight[i] >> value[i];
+    for(int j = 1; j <= N; j++)
+        for(int i = 0; i <= V; i++)
+            {
+                cout << "背包已装容量:" << i << endl;
+                if(i >= weight[j])
+                    {
+                        if(maxTotalValue[i] >= value[j] + maxTotalValue[i - weight[j]])
+                            //cout << "背包中未装入物品:" << j << endl;
+                            ;
+                        else
+                            {
+                                maxTotalValue[i] = maxTotalValue[i - weight[j]] + value[j];
+                                cout << "背包中已装入物品:" << j << endl;
+                            }
+                    }
+                else
+                    //cout << "背包中未装入物品:" << j << endl;
+                    ;
+            }
+    cout << "背包能装物品的最大总价值:" << maxTotalValue[V] << endl;
+    return 0;
+}
+```
 

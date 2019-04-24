@@ -1135,13 +1135,19 @@ categories: review
 
 		![](OS/1555948399247.png)
 
-		| Semaphores                                                   | Condition Variables                                          |
-		| ------------------------------------------------------------ | ------------------------------------------------------------ |
-		| Can be used anywhere, but not in a monitor                   | Can only be used in monitors                                 |
-		| wait() does **not** always block its caller                  | wait() **always** blocks its caller                          |
+		
+		
+		
+		
+		|                          Semaphores                          |                     Condition Variables                      |
+		| :----------------------------------------------------------: | :----------------------------------------------------------: |
+|          Can be used anywhere, but not in a monitor          |                 Can only be used in monitors                 |
+		|         wait() does **not** always block its caller          |             wait() **always** blocks its caller              |
 		| signal() either releases a process, or increase the semaphore counter | signal() either releases a process ,or the signal is **lost** as if it never occurs |
 		| If signal() release a process, the caller and the release **both** continue | If signal() release a process, either the caller or the released continues, but **not** both |
-
+		
+		
+		
 		-  管程是公用数据结构，进程是私有数据结构
 		- 管程集中管理共享变量上的同步操作，临界区分散在每个进程中
 		- 管程管理共享资源，进程占用系统资源和实现系统并发性
@@ -1150,7 +1156,7 @@ categories: review
 
 ---
 
-🚧正在施工中……🚧
+🚧中期部分施工完成，期末再见(～﹃～)~zZ补觉去了……🚧
 
 
 
