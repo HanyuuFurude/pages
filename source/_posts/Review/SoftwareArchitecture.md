@@ -1,6 +1,6 @@
 ---
 title: 软件体系架构
-date: 2019-04-12 23:03:06
+date: 2019-04-23 23:03:06
 cover: https://raw.githubusercontent.com/HanyuuFurude/TechBlog/master/res/rm.png
 tags: 
 	- softwareArchitecture

@@ -1,6 +1,6 @@
 ---
 title: 算法分析与设计
-date: 2019-04-12 23:03:06
+date: 2019-04-24 23:03:06
 cover: https://raw.githubusercontent.com/HanyuuFurude/TechBlog/master/res/rm.png
 tags: 
 	- os
@@ -393,11 +393,10 @@ int main()
     -   如果重复调用一个一致的$(\frac{1}{2}+\epsilon)$正确的MC算法2m-1次，得到正确解的概率至少为$1-\delta$,其中
 
       
-        $$
-        \delta=\frac{1}{2}-\epsilon\sum_{i=0}^{m-1}
+
+$$\delta=\frac{1}{2}-\epsilon\sum_{i=0}^{m-1}
 \begin{pmatrix}2i\\i\end{pmatrix}
-        (\frac{1}{4}-\epsilon^2)^i\leq\frac{(1-4\epsilon^2)^m}{4\epsilon\sqrt{\pi m}}
-$$
-        
-        -   主元素问题
-        -   素数测试
+(\frac{1}{4}-\epsilon^2)^i\leq\frac{(1-4\epsilon^2)^m}{4\epsilon\sqrt{\pi m}}$$
+
+-  主元素问题
+-  素数测试
