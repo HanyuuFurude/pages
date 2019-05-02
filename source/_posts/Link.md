@@ -51,6 +51,8 @@ tags: techlog
 *   [python3教程【廖雪峰】](https://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000)
 *   [requests(爬虫)](http://docs.python-requests.org/zh_CN/latest/user/quickstart.html)
 *   [base64-python](https://www.liaoxuefeng.com/wiki/001374738125095c955c1e6d8bb493182103fac9270762a000/001399413803339f4bbda5c01fc479cbea98b1387390748000)
+*   [PyQT5](http://zetcode.com/gui/pyqt5/)
+*   [PyQT5](https://pythonspot.com/pyqt5/)
 *   [xlrd (Excel文档读取)](https://xlrd.readthedocs.io/en/latest/index.html)
 
 #### environment manager
