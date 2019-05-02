@@ -6,9 +6,9 @@ date: 2019-04-23 23:03:06
 cover: https://raw.githubusercontent.com/HanyuuFurude/TechBlog/master/res/rm.png
 tags: 
 
-	- softwareArchitecture
-	- review
-categories: review
+	- SoftwareArchitecture
+	- Review
+categories: Review
 ---
 [TOC]
 
@@ -124,7 +124,7 @@ categories: review
     
 -   **软件架构建模方法的发展趋势**
 
-    ![](/review/SoftwareArchitecture/1556180594343.png)
+    ![](/Review/SoftwareArchitecture/1556180594343.png)
 
     ![](SoftwareArchitecture/1556180594343.png)
 
@@ -257,9 +257,9 @@ categories: review
     	- 缺点
     
     		- 额外的间接层次导致了系统性能的下降（e.g. Java without JIT）
-        ![](/review/SoftwareArchitecture/1556282849350.png)
+        ![](/Review/SoftwareArchitecture/1556282849350.png)
         ![](SoftwareArchitecture/1556282849350.png)
-        ![](/review/SoftwareArchitecture/1556282935258.png)
+        ![](/Review/SoftwareArchitecture/1556282935258.png)
         ![](SoftwareArchitecture/1556282935258.png)
     
     
@@ -296,7 +296,7 @@ categories: review
     	- 缺点
     
     		- 对于各个模块,需要一定的同步/加锁机制保证数据结构的完整性和一致性    
-![](/review/SoftwareArchitecture/1556285459619.png)
+![](/Review/SoftwareArchitecture/1556285459619.png)
 ![](SoftwareArchitecture/1556285459619.png)
     
     9.  **黑板系统风格**
@@ -313,7 +313,7 @@ categories: review
     	  	- 黑板数据结构
     
     	  	- 控制器
-![](/review/SoftwareArchitecture/1556285650816.png)
+![](/Review/SoftwareArchitecture/1556285650816.png)
 ![](SoftwareArchitecture/1556285650816.png)
     	
     - 优点
@@ -329,7 +329,7 @@ categories: review
     	
     	- 需要一定的同步/加锁机制保证数据结构的完整性和一致性,增大了系统复杂度
     	
-    	  ![](/review/SoftwareArchitecture/1556285901469.png)
+    	  ![](/Review/SoftwareArchitecture/1556285901469.png)
     	  		![](SoftwareArchitecture/1556285901469.png)
     	
     
@@ -346,7 +346,7 @@ categories: review
     		- 组件的顶部应连接到某连接件的底部,组件的底部应连接到某连接件的顶部,不允许组件之间的直接连接
     		  - 一个连接件可以和任意数目的其他组件和连接件连接
     				- 当两个连接件进行直接连接时,必须由其中一个的底部到另一个的底部
-    				![](/review/SoftwareArchitecture/1556286112213.png)
+    				![](/Review/SoftwareArchitecture/1556286112213.png)
     				![](SoftwareArchitecture/1556286112213.png)
     		- C2的内部,通信和处理时分开完成的
     - 优点
@@ -454,7 +454,7 @@ categories: review
     
            - 接口
     
-           - ![](/review/SoftwareArchitecture/1556331836632.png)
+           - ![](/Review/SoftwareArchitecture/1556331836632.png)
     
              ![](SoftwareArchitecture/1556331836632.png)
     
@@ -494,7 +494,7 @@ categories: review
              - 线索（Thread）<small>子系统的特例</small>的组件（Component）
              - 线索是相互独立的，即线索中的组件之间没有相互调用
     
-             ![](/review/SoftwareArchitecture/1556332223947.png)
+             ![](/Review/SoftwareArchitecture/1556332223947.png)
     
              ![](SoftwareArchitecture/1556332223947.png)
     
@@ -617,7 +617,7 @@ categories: review
 
         -   详细架构设计
 
-            ![](/review/SoftwareArchitecture/1556333827911.png)
+            ![](/Review/SoftwareArchitecture/1556333827911.png)
 
             ![](SoftwareArchitecture/1556333827911.png)
 
@@ -662,7 +662,7 @@ categories: review
 
     -   开发流程
 
-        ![](/review/SoftwareArchitecture/1556337628833.png)
+        ![](/Review/SoftwareArchitecture/1556337628833.png)
 
         ![](SoftwareArchitecture/1556337628833.png)
 
@@ -706,9 +706,9 @@ categories: review
 
     -   软件需求和软件架构两者是相辅相成的关系，一方面软件需求影响软件架构设计，另一方面软件架构帮助需求分析的明确和细化
 -   需求与架构的相互影响可以看作一个螺旋的过程，也是一个双峰的过程
-        ![](/review/SoftwareArchitecture/1556341874365.png)
+        ![](/Review/SoftwareArchitecture/1556341874365.png)
         ![](SoftwareArchitecture/1556341874365.png)
-        ![](/review/SoftwareArchitecture/1556341928826.png)
+        ![](/Review/SoftwareArchitecture/1556341928826.png)
         ![](SoftwareArchitecture/1556341928826.png)
 -   将软件架构映射到详细设计经常遇到什么问题？如何解决？
     - 问题
@@ -800,7 +800,7 @@ categories: review
 
     - 评估过程
 
-      ![](/review/SoftwareArchitecture/1556344021563.png)
+      ![](/Review/SoftwareArchitecture/1556344021563.png)
 
       ![](SoftwareArchitecture/1556344021563.png)
 
@@ -828,7 +828,7 @@ categories: review
                 -   在架构开发和实现过程中对原有架构进行调整，保证软件实现与架构的一致性以及软件开发过程的顺利进行
                 -   运行前演化需求：软件发布之后由于运行环境的变化，需要对软件进行修改升级，在此期间软件的架构同样要进行演化
         -   过程
-            ![](/review/SoftwareArchitecture/1556344248357.png) 
+            ![](/Review/SoftwareArchitecture/1556344248357.png) 
             ![](SoftwareArchitecture/1556344248357.png)
             1. 软件理解
                1. 查阅软件文档，分析软件架构，识别系统组成元素及其之间的相互关系，提取系统的抽象表
