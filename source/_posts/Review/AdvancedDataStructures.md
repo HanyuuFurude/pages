@@ -95,9 +95,38 @@ $amortizedCost  = acutalCost + \Delta P$
 
 ## 缓冲使用策略，原因和方法
 
+*   Reason
+    *   not feasible to input n records, sort and output in sorted order
+
+*   ALU-main memory-disk
+*   prefetch
+*   
+
+
+
+*   Tournamenet Trees
+*   Huffman trees
+*   Double-ended priority queues
+*   Buffering
+*   
+
 # 红黑树
 
 # 最小最大堆
 
 # 设计数据结构与算法
 
+# Review
+
+-   Amoritized analysis
+-   Succinct data structures
+-   Function for bit vectors
+    -   BInary trees
+    -   Ordered tree
+-   String matching
+    -   BM
+-   Double ended priority
+-   External Sort
+    -   buffer management
+-   Red-black trees
+-   augmenting data structures
