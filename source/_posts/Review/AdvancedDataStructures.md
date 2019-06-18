@@ -96,23 +96,61 @@ $amortizedCost  = acutalCost + \Delta P$
 ## 缓冲使用策略，原因和方法
 
 *   Reason
-    *   not feasible to input n records, sort and output in sorted order
-
+    
+*   not feasible to input n records, sort and output in sorted order
+    
 *   ALU-main memory-disk
+
 *   prefetch
-*   
+
+    ![](Review/AdvancedDataStructures/1560237147382.png)
+
+    ![](AdvancedDataStructures/1560237147382.png)
+
+* 3 input/output buffers
+  * input, small, large
+  * middle
+  * fill middle group from disk
+  * if next record $\leq$ middle-min- send to small
+  * if next record $\geq$ middle-max- send to large
+  * else remove middle-min- or middle-max from middle and add new record to middle group
+  *  fill input buffer when it gets empty 
+  * write small/large buffer when full        
+  * write middle group in sorted order when done
+  * double-ended priority queue
+  
+* Internal Merge Sort
+  * create initial sorted segments   
+  * merge pairs of sorted segmetns in merge passes, until only 1 segment remains
+  
+* External Merge Sort
+  * run generation
+    *  a run is a sorted sequence of records
+  * run merging
+  
+* Run generation
+
+  *   loser tree																																																																																																																								
 
 
-
-*   Tournamenet Trees
+*   Tournament Trees
 *   Huffman trees
 *   Double-ended priority queues
 *   Buffering
-*   
 
 # 红黑树
 
 # 最小最大堆
+
+### 插入
+
+只需要将节点插在二叉树的最后一个叶子结点位置，然后比较它对它父亲节点的大小，如果大则停止；如果小则交换位置，然后对父亲节点递归该过程直至根节点。复杂度为$O(log(n))$。
+
+一般来说，插入的位置可以不是最后一个叶子节点，可以作为任意中间节点的孩子节点插入，将这个叶子节点变为中间节点后，按上文所说的方法调整节点顺序以保证维持堆特性不变。     
+
+### 删除
+
+要从堆中删除一个节点，用最后一个节点替换掉要删除的节点，然后调整节点顺序以维持堆特性。
 
 # 设计数据结构与算法
 
