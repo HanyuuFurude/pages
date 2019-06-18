@@ -1,6 +1,6 @@
 ---
 title: 操作系统原理总结
-date: 2019-04-12 23:03:06
+date: 2019-06-18 23:03:06
 cover: https://raw.githubusercontent.com/HanyuuFurude/TechBlog/master/res/rm.png
 tags: 
 	- os
@@ -66,8 +66,8 @@ categories: review
 # Chapter 2 Operating-System Structures
 
 *   功能和服务的差别：
-    *   对内：自行实现
-    *   对外：可以调用其他功能代为实现
+    *   功能对内：自行实现
+    *   服务对外：可以调用其他功能代为实现
 *   common function of OS
     *   process management
         *   process synchronization
@@ -102,7 +102,7 @@ categories: review
                 *   Information maintenance
                 *   Communications
     *   **PR. Why do user use APIs rather than system calls directory?**
-    *   **ANS.**
+    *   **Ans**
         1.  跨平台能力（提供相同的API封装）移植性好
         2.  模块化封装，可维护性好
         3.  简化了程序编写
@@ -243,7 +243,7 @@ categories: review
 				    *   task assigned to child is no longer required
 				    *   parent is exiting <small>^*^not all of the operation system supports **Cascading termination(级联终止)**</small>
 
-*   InterProcess Communication(**IPC**)
+*   Inter-process Communication(**IPC**)
 
 	*   **Independent** process cannot affect or be effected by the execution of another process
 
@@ -259,7 +259,7 @@ categories: review
 
 			4. Convenience
 
-	*   **Shared memory** & **Message passing**
+	*   **Shared memory & Message passing**
 
 		![](/review/OS/1555742278383.png)
 
@@ -281,7 +281,7 @@ categories: review
 
 			- communication link
 
-				1. link may be unidirectional or bidirectional 
+				1. link may be unidirectional or bidirectional (双向)
 
 				2. a link may be associated with many processes
 
@@ -290,7 +290,7 @@ categories: review
 					- send(P,message) send a message to process P
 					- receive(Q,message)  receive a message from process Q
 
-				- indirect communiction
+				- indirect communication
 
 					- mailboxes
 
@@ -327,9 +327,9 @@ categories: review
 
   - A thread is a flow of control within a process
 
-  - thread is a **basic** unit of CPU execution (known as LightWeight Process(LWP))
+  - thread is a **basic** unit of CPU execution (known as light weight Process(LWP))
 
-  - process (HeavyWeight process(HWP)) has a **single** thread of control
+  - process (heavy weight process(HWP)) has a **single** thread of control
 
   - multithreaded process contains several **different** flows of control within the **same** address space
 
@@ -1149,10 +1149,144 @@ categories: review
 		
 		
 		-  管程是公用数据结构，进程是私有数据结构
-		- 管程集中管理共享变量上的同步操作，临界区分散在每个进程中
-		- 管程管理共享资源，进程占用系统资源和实现系统并发性
-		- 管程被欲使用的共享资源的进程调用，管程和调用它的进程不能并发工作，进程之间能并发工作
-		- 管程是语言或操作系统的成分，不必创建或撤销，进程有生命周期，有创建有消亡
+		-  管程集中管理共享变量上的同步操作，临界区分散在每个进程中
+		-  管程管理共享资源，进程占用系统资源和实现系统并发性
+		-  管程被欲使用的共享资源的进程调用，管程和调用它的进程不能并发工作，进程之间能并发工作
+		-  管程是语言或操作系统的成分，不必创建或撤销，进程有生命周期，有创建有消亡
+
+# Chapter 07 Deadlocks
+
+* system model
+
+  * Deadlock
+    * Resources types R~1~ ,R~2~ …,R~m~
+    * CPU cycles, memory space, I/O devices, files and so on 
+    * each resource type R~i~ has W~i~ instances
+    * request → use → release
+
+* deadlock characterization
+
+  * The conditions for deadlock
+
+    * mutual exclusion
+    * hold and wait
+    * no preemption
+    * circular wait
+
+  * resource allocation graph
+
+    * edges E,process P,resource R
+
+      * request edge P~i~→R~j~
+
+      * assignment edge R~j~→P~i~
+
+        ![](/Review/OS/1560864366616.png)
+
+        ![](OS/1560864366616.png)
+
+        ![](/Review/OS/1560864436908.png)
+
+        ![](OS/1560864436908.png)
+
+        ![](/Review/OS/1560864539855.png)
+
+        ![](OS/1560864539855.png)
+
+        > 死锁一定循环，循环未必死锁
+        >
+        > 当实例只有一个资源时，有循环就会死锁
+        >
+        > 但是当实例有多个资源时，循环可能导致死锁（如上图）
+
+        
+
+* Methods for handling deadlocks
+
+  * **Ensure** that the system will never enter a deadlock state
+    * Prevention
+      * break conditions
+    * Avoidance
+      * the OS needs more information to determine whether the current request can be satisfied of delayed
+    * Allow the deadlock, detect it, and recover.
+    * Just ignore it and pretend deadlocks will never happened. :)
+
+* deadlock prevention
+
+  * ~~Mutual Exclusion~~
+  * hold and wait
+    * a process must acquire all resources before it runs
+    * when a process requests for resources, it must hold none
+      * Resource utilization might be low, since many resources will be held and unused for a long time
+      * starvation is possible. A process that needs some popular resources may have to wait indefinitely
+  * No preemption
+    * if a process that is holding some resources requests another resource that cannot be immediately allocated to it , then all resources currently being held are **preempted**(抢占)
+      * if the requested resources are not available
+        * if they are being held by process that are waiting for additional resources, these resources are preempted and given to the requesting process.
+        * else, the requesting process waits until the requested resources become available. When it is waiting. its resources may be preempted
+  * Circular wait
+    * a process can only request higher than the resources types it holds
+    * a process must release some higher order resources to request a lower resource
+
+* deadlock avoidance
+
+  * all of the process declare the maximum number of resources of each type that it may need
+
+  *  the deadlock-avoidance algorithm dynamically exam the resource-allocation state to ensure that there can never be a circular-wait condition
+
+  * Resource-allocation state is defined by the number of available and allocated resources, and the maxium demands of the process
+
+  * Safe state
+
+  * single instance of a resource type
+
+    * resource-allocation-graph algorithm
+      * claim edge p~i~→p~j~ indicated that process p~i~ may request resource r~j~; represented by a dashed line
+      * claim edge converts to request edge when a process requests a resource
+      * when a resource is released by a process, assignment edge reconverts to a claim edge
+      * resource must be claimed a prior in the system
+
+  * multiple instances of a resource type
+
+    * banker’s algorithm
+
+      | process | max  | allocation | need |
+      | ------- | ---- | ---------- | ---- |
+      | P~0~ | [7,5,3] | [0,1,0] |[7,4,3]|
+  | P~1~ | [3,2,2] | [2,0,0] |[1,2,2]|
+      
+      available[3,3,2]
+
+* deadlock detection
+
+  * maintain wait-for-graph and search for a cycle in the graph
+
+    * nodes are process
+
+    * P~i~→P~j~ is waiting for P~j~
+
+    * search for a cycle
+
+      ![](Review/OS/1560882859963.png)
+
+      ![](OS/1560882859963.png)
+
+* recovery form deadlock
+
+  * Pross termination
+    * About all deadlocked process
+    * About one process at a time until the deadlock cycle is established
+  * Resource preemption
+    * selecting a victim (minimize cost if possible)
+    * rollback
+      * return to some safe state restart process for that state
+    * starvation
+      * same process may always be picked as victim (aging)
+      * include the number of rollback in the cost factor
+
+# Review
+
+
 
 ---
 
