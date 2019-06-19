@@ -1589,7 +1589,369 @@ categories: review
 
 # Chapter 9 Virtual Memory
 
+* background
 
+  * logic address space can be larger than physical address space
+  * shares library using virtual memory
+  * copy on write
+    * process creation
+    * copy on write(COW) allows both parent and child processed to initially share the same pages in memory
+    * if either process modifies a shared page, then only the page is copied
+    *  COW allows more efficient process creation as only are copied
+    * free pages are allocated from a pool of zeroed-filled pages
+
+* demand paging
+
+  * bring a page into memory only when it is needed 
+
+    * less I/O needed 
+    * less memory needed
+    * faster response
+    * more users
+
+  * page is needed → reference to it
+
+    * invalid reference → abort
+    * not in memory → bring to memory
+
+  * Lazy swapper(Pager)
+
+  * valid-invalid bit
+
+    * 1- valid and in memory
+    * 0- invalid or not in memory(default)
+
+  * page fault
+
+    * invalid reference > abort
+
+    * just not in memory
+
+    * get empty frame
+
+    * swap page into farame
+
+    * reset tables validation bit = 1
+
+    * restart instruction
+
+      ![](/Review/OS/1560944517042.png)
+
+      ![](OS/1560944517042.png)
+
+      * page fault rate p
+      * p==0, no page faults
+      * p==1, every reference is a fault
+      * Effective Access Time(EAT)
+        * $EAT = (1-p)\times memory\ access\ time + p(page\ fault\ overhead)$
+        * $page\ fault overhead = service  \ the \ page = fault \  interrupt+[swap\ page\ out]+swap\ page\ in+restart\ overhead$
+
+* page replacement
+
+  * large virtual memory can be provided on a smaller physical memory
+  * same pages may be brought into memory several times
+
+* basic page replacement
+
+  * find a free frame and use it
+  * if no frame free, use a page replacement algorithm to select a victim frame
+  * write the victim frame to the disk and change the page and frame tables
+  * read the desired page into the free frame. Update the page and frame tables
+  * restart the process
+  * use modify bit to reduce overhead of page transfers(if not modified,not write)
+  * lowest page fault rate
+
+* Algorithm
+
+  * FIFO first in first out
+  * LRU least recently used
+  * LRU approximation algorithms
+    * second chance algorithm
+    * clock replacement(FIFO)
+    * if the page to be replaced has reference bit  = 1.then
+      * set reference bit 0
+      * leave page in memory
+      * replace next page, subject to same rules
+    * Reference bit
+      * initially = 0
+      * referenced bit =1
+      * replace the one which bit is 0
+    * keep a counter of the number of references that have been made to each page
+    * LFU
+      * replace pages with smallest count
+    * MFU
+      * based on the argument that the page with the smallest count was probably just brought in and has yet to be used
+  * OPT最佳置换算法
+
+* allocation of frames
+
+  * Fixed allocation
+    * equal allocation
+    * proportional allocation
+      * allocation according to the size of the process
+      * s~i~ = size of process p~i~
+      * s=$\sum$s~i~
+      * m=total number of frames
+      * a~i~ = allocation for p~i~ = $\frac{s_i}{s}\times m$
+  * priority allocation
+    * use a proportional allocation scheme using priorities rather than size
+    * if process p~i~ generates a page fault
+      * select for replacement one of its frames
+      * select for replacement a frame from a process with lower priority numebr
+    * Global or local allocation
+      * global
+        * select from all frames
+      * local
+        * select from its own set
+
+* thrashing(颠簸)
+
+  
+
+  ![](/Review/OS/1560952062065.png)
+
+  ![](OS/1560952062065.png)
+
+  * if a CPU does not have “enough” frames, the page fault rate is very high
+
+    * low CPU utilization
+    * operating system thinks that it needs to increase the degree of multiprogramming
+    * another process is added to the system
+
+  * A process is busying swapping pages in and out
+
+  * Why does paging work
+
+    * locality model
+      * a locality is a set of pages that are actively used together
+      * process migrates form one locality to another
+      * localities may overlap
+
+  * why does the trashing occur
+
+    * size of locality > allocated memory size
+
+  * Working set model
+
+  * Δ ≡ working-set window ≡ a fixed number of page references
+
+  * WSS~i~ (Working set of process P~i~)
+
+    * to small not encompass entire loclity
+
+    * to large encompass several localities
+
+    * ∞ encompass entire program
+
+      ![](/Review/OS/1560959176355.png)
+
+      ![](OS/1560959176355.png)
+
+    * establish “acceptable” page fault rate
+
+* memory-mapped files
+
+* allocation-mapped files
+
+* allocating kernel memory
+
+  * treated different form user memory
+
+  * often allocated from a free-memory pool
+
+    * kernel requests memory for structures of varying sizes
+    * some kernel memory needs to be contiguous
+
+  * buddy system
+
+    ![](/Review/OS/1560960290152.png)
+
+    ![](OS/1560960290152.png)
+
+  * slab allocator
+
+    ![](/Review/OS/1560961295061.png)
+
+    ![](OS/1560961295061.png)
+
+* other consideration
+
+  * prepaging
+  * page size
+    * fragmentation ,small page
+    * table size, large page
+    * I/O overhead, large page
+    * locality, small page
+    * TLB reach = TLB size x page size
+      * multiple page size
+    * program structure
+    * I/O interlock
+
+* operating system examples
+
+# Chapter 10 File system interface
+
+* file concept 
+
+  * a file is a named collection of related information that is recorded on secondary storage
+
+  * contiguous logical address space
+
+  * file structure
+
+    * simple record structure
+      * lines
+      * fixed length
+      * variable length
+    * complex structures
+      * formatted document
+      * relocatable load file
+
+  * arrributes
+
+    * name
+    * ldentifier
+    * type
+    * location
+    * size
+    * protection
+    * time,date, and user identification
+    * information about file are kept in the directory structure, which is maintained on the disk
+
+  * operation
+
+    * create
+    * write
+    * read
+    * reposition within file - file seek
+    * delete
+    * truncate (截短)- erase the contents of a file but keep its arrtibutes
+    * open
+    * close
+    * internal tables
+      * per-process open file table
+      * system-wide open file table
+
+  * access methods
+
+    * sequential access
+      * rewind/read/wrire
+
+    * direct access
+
+  * directory structure
+
+    * disks are split into on or more partitions
+    * each partition contains information about files within it
+    * the information is kept in entries in a device directory or volume table of contents
+
+  * operation performed on directory
+
+    * search for a file
+    * create a file
+    * delete a file
+    * list a directory
+    * rename a file
+    * traverse the file system
+
+  * organize the file directory(Logically) to obrain
+
+    * efficiency = locating a file quickly
+    * naming -convenient to users
+      * two users can have same for different files
+      * the same file can have several different name
+    * grouping -  logical grouping of files by properties
+
+  * Directory
+
+    * Pr
+
+      * naming
+      * grouping
+      * pathname
+      * same file for different user
+      * efficient searching
+      * grouping capability
+
+    * single level directory
+
+      ![](/review/OS/1560965389985.png)
+
+      ![](OS/1560965389985.png)
+
+    * two level directory
+
+      * separate directory for each user
+
+        ![](/review/OS/1560965477068.png)
+
+        ![](OS/1560965477068.png)
+
+    * Tree structured directories
+
+      ![](/review/OS/1560965676681.png)
+
+      ![](/OS/1560965676681.png)
+
+      * efficient searching
+
+      * grouping capability
+
+      * current directory( working directory )
+
+      * absolute / relative path name
+
+      * creating a new file is done in current directory
+
+      * delete a file
+
+      * mkdir
+
+      * acyclic graph directories
+
+        * shared subdirectories and files
+
+        * two different names(aliasing)
+
+        * if dict deletes count > dangling pointer
+
+        * solutions
+
+          * backpointers, so we can delete all pointers
+          * entry hold count solution
+
+          ![](/Review/OS/1560966250970.png)
+
+          ![](OS/1560966250970.png)
+
+      * how to guarantee no cycles
+        * allow only links to file not subdirections
+        * garbage collecton
+        * every time a new link is added use a cycle detection algorithm to determine whether it is OK
+
+* file system mounting
+
+  * a file system must be mounted before it can be accessed
+  * an unmounted file system is mounted at a mount point
+
+* file sharing
+
+  * sharing of files on multi-user system is desirable
+  * sharing may be done though a protection scheme
+  * on distributed systems, files ay be shared across a network
+  * network file system(NFS) is a common distributed file sharing method
+
+* protection
+
+  * owner / creator control
+    * what can be done by whom
+  * type of access
+    * read
+    * write
+    * execute
+    * append
+    * delete
+    * list
 
 # Review
 
