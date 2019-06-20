@@ -1169,10 +1169,10 @@ categories: review
 
   * The conditions for deadlock
 
-    * mutual exclusion
-    * hold and wait
-    * no preemption
-    * circular wait
+    * **mutual exclusion**
+    * **hold and wait**
+    * **no preemption**
+    * **circular wait**
 
   * resource allocation graph
 
@@ -2129,7 +2129,7 @@ categories: review
     * disk allocation and directory management algorithms
     * type of data kept in file’s directory entry
   * performance
-    * disk chache
+    * disk cache
     * free-behind and read-ahead (optimize sequential access)
     * virtual disk, ram disk , etc.
   * page cache
@@ -2180,11 +2180,13 @@ categories: review
     * seek time
     * rotational latency
   * disk bandwidth
+    
     * the total number of bytes transferred, divided by the total time between the first request for service and the completion of the last transfer
   * FCFS
   * SSTF(shortest seek time first)
-    * may cause starvation of some requests
-
+    
+  * may cause starvation of some requests
+    
   * SCAN - elevator algorithm
 
   * C-SCAN
