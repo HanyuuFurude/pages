@@ -1953,15 +1953,325 @@ categories: review
     * delete
     * list
 
-# Review
+# Chapter 11 File system implementation
 
+* file system structure
+  * file structure
+    * logical storage unit
+    * collection of related information
+  * file system resides on secondary storage(disks)
+  * file system organized into layers
+  * application programs > logical file system > file-organization module > basic file system > I/O control > devices
+  
+* file system implementation
 
+  * file control block
 
----
+    * file permissions
+    * file dates
+    * file owner, group, ACL
+    * file size
+    * file data blocks or pointers to file data blocks
 
-🚧中期部分施工完成，期末再见(～﹃～)~zZ补觉去了……🚧
+  * in memory file system structures
 
+    ![](/Review/OS/1561008428383.png)
 
+    ![](OS/1561008428383.png)
+
+  * virtual file systems
+
+    * virtual file system(VFS) provide an object oriented way of implementing file systems
+    * VFS allows the same system call interface (API) to be used for different types of file systems
+    * The API is to the VFS interface, rather than any specific type of file system
+
+* directory implementation
+
+  * linear list of file names with pointer to the data blocks
+    * simple to program
+    * time consuming to exectute
+  * Hash table - linear list with hash data structure
+    * decreases directory search time
+    * collisions - situations where two file names hash to the same location
+
+* allocation methods
+
+  * an allocation method refers to how disk blocks are allocated for files
+
+    * contiguous allocation
+
+      * simple
+
+      * random access (sequential direct)
+
+      * wasteful of space (dynamic storage allocation problem)
+
+      * files cannot grow
+
+        ![](/Review/OS/1561009874702.png)
+
+        ![](OS/1561009874702.png)
+
+        * extent-based systems
+          * many newer file system use a modified contiguous allocation scheme
+          * extent-based file systems allocate disk blocks in extents
+          * an extent is a contiguous block of disks
+            * extents are allocated for file allocation
+            * a file consists of one or more extents
+
+    * linked allocation
+
+      * each file is a liked list of disk blocks
+
+      * blocks may be scattered anywhere on the disk
+
+        * simple
+
+        * no waste of space
+
+        * files can grow
+
+        * no random access
+
+        * each block contains a pointer, wasting space
+
+        * blocks scatter everywhere and a large number of disk seeks may be necessay
+
+        * reliability - if a pointer is lost or damaged?
+
+          ![](/Review/OS/1561010436027.png)
+
+          ![](OS/1561010436027.png)
+
+        * file allocation table
+
+        ![](/Review/OS/1561010761195.png)
+
+        ![](OS/1561010761195.png)
+
+    * indexed allocation
+
+      * bring all pointers together into the index block
+
+      * a file’s directory entry contains a pointer to its index. Hence, the index block of an indexed allocation plays the same role as the page table
+
+        ![](/Review/OS/1561011145011.png)
+
+        ![A](OS/1561011145011.png)
+
+      * random access
+
+      * the indexed allocation suffers from wasted space. The index block may not be fully used
+
+      * the number of entries of an index table determines the size of a file
+
+        * Overcome
+          * multiple index blocks, chain them into a inked list
+          * multiple index blocks, but make them into a tree just like the indexed access method(multilevel)
+          * a combination of both
+
+* free space management
+
+  * free space list
+
+    * bit vector
+
+      ![](/Review/OS/1561015542658.png)
+
+      ![](OS/1561015542658.png)
+
+      * block number calculation 
+
+        = number of bits per word *
+
+          number of 0-value words +
+
+        offset of first 1 bit
+
+      * requires extra space
+
+      * easy to get contiguous files
+
+    * linked list
+
+      * cannot get contiguous space easily
+
+      * no waste of space
+
+        ![](/Review/OS/1561015986478.png)
+
+        ![](OS/1561015986478.png)
+
+    * grouping
+
+      ![](/Review/OS/1561016075242.png)
+
+      ![](OS/1561016075242.png)
+
+    * address counting
+
+      * to make list short with the following trick
+
+        * blocks are often allocated and freed in groups
+
+        * for every group, we can store the address of the first free block and the number of the following n free blocks
+
+          ![](/Review/OS/1561016215091.png)
+
+          ![](OS/1561016215091.png)
+
+    * linked list + grouping
+    * linked list + address + count
+
+* efficiency and performance
+
+  * efficiency dependent on
+    * disk allocation and directory management algorithms
+    * type of data kept in file’s directory entry
+  * performance
+    * disk chache
+    * free-behind and read-ahead (optimize sequential access)
+    * virtual disk, ram disk , etc.
+  * page cache
+
+* recovery
+
+  * consistency checking
+  * back up data from disk to another
+  * recover lost file or disk by restoring data from backup
+
+* log structured file systems (审计和统计)
+
+  * record each update to the file system as a transaction
+  * all transactions are written to a log
+
+* NFS
+
+  * network file system
+
+# Chapter 12 mass storage structure
+
+* disk structure
+
+  ![1561017720728](OS/1561017720728.png)
+
+  * magnetic disks provide bulk of secondary storage of modern computers
+    * transfer rate
+      * data flow between drive and computer
+    * positioning time
+      * random access time
+        * time to move disk arm to desired cylinder (seek time) and time for desired sector to rotate under the disk head (rotational latency)
+        * head crash results from disk head making contact with the disk surface
+    * disk can be removeable
+    * attached to computer via I/O bus
+      * host controller in computer uses bus to talk to disk controller built into drive or storage array
+    * logical blocks
+      * sector 0 outmost
+      * from outmost to inner most
+
+* disk attachment
+
+  * host attached via an I/O port
+  * network attached via a network connection
+
+* disk scheduling
+
+  * access time
+    * seek time
+    * rotational latency
+  * disk bandwidth
+    * the total number of bytes transferred, divided by the total time between the first request for service and the completion of the last transfer
+  * FCFS
+  * SSTF(shortest seek time first)
+    * may cause starvation of some requests
+
+  * SCAN - elevator algorithm
+
+  * C-SCAN
+
+    * provide a more uniform wait time than SCAN
+
+      ![](/Review/OS/1561020883178.png)
+
+      ![](OS/1561020883178.png)
+
+  * C-LOOK
+
+    ![](/Review/OS/1561020942246.png)
+
+    ![](OS/1561020942246.png)
+
+  * SSTF is common and has natural appeal
+
+  * SCAN and C-SCAN perform better for systems that place a heavy load on the disk
+
+  * either SSTF or LOOK is a reasonable choice for the default algorithm
+
+  * performance depends on the number and types of reuests
+
+  * requests for disk service can be influences by the file-allocation method
+
+* disk management
+
+  * disk formatting
+
+    * low-level formatting, of physical formatting
+
+      * dividing a disk into sectors that the disk controller can read and write
+
+        ![](/Review/OS/1561021927433.png)
+
+        ![](OS/1561021927433.png)
+
+      * partition
+
+      * logical formatting
+
+        * making a file system
+
+  * boot block
+
+    * boot block initializes system
+
+      * the bootstrap is stored in ROM
+        bootstrap loader program
+
+        ![](/Review/OS/1561022042883.png)
+
+        ![](OS/1561022042883.png)
+
+  * Error handling
+
+    * a disk track with a bad sector
+
+    * substituting a spare for the bad sector
+
+    * shifting all the sectors to bypass the bad one
+
+      ![](/Review/OS/1561022112474.png)
+
+      ![](OS/1561022112474.png)
+
+* swap space management
+
+  * swap space
+    * swap space can be carved out of the normal file system, or, more commonly, it can be in a separate disk partition
+
+* RAID structure
+
+  * Redundant Array of Independent Disk  (冗余磁盘阵列)
+
+  * improves reliability via redundancy and performance via parallelism
+
+  * raid is arranged into dix different levels
+
+    ![](/Review/OS/1561022379778.png)
+
+    ![](OS/1561022379778.png)
+
+* stable storage implementation
+
+* tertiary storage devices
 
 
 
