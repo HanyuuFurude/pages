@@ -57,4 +57,57 @@ IndexError: list assignment index out of range
   ```
 
 * 使用替代数组
-  * 
+
+  * Filter
+
+    ``` python
+    >>> numList = list(range(10))
+    >>> numList = filter(lambda x : x % 2 == 0, numList)
+    >>> print(numList)
+    <filter object at 0x000002B358100470>
+    >>> for i in numList:
+    ...     print(i)
+    ... 
+    0
+    2
+    4
+    6
+    8
+    ```
+
+  * List
+
+    ``` python
+    >>> numList = list(range(10))                   
+    >>> numList = [x for x in numList if x % 2 == 0]
+    >>> numList
+    [0, 2, 4, 6, 8]
+    ```
+
+* 遍历list的备份
+
+  ``` python
+  >>> numList = list(range(10))                   
+  >>> for i in numList[:]:
+  ...     if i % 2 == 0:
+  ...             numList.remove(i)
+  ... 
+  >>> numList
+  [1, 3, 5, 7, 9]
+  ```
+
+  
+
+* 逆序遍历
+
+  ``` python
+  >>> numList = list(range(10))   
+  >>> for i in range(len(numList) - 1, -1 , -1):
+  ...     if numList[i] % 2 == 0:
+  ...             del(numList[i])
+  ... 
+  >>> numList
+  [1, 3, 5, 7, 9]
+  ```
+
+  
