@@ -1,11 +1,11 @@
 ---
 title: 生产者消费者问题解决（windows API和Pthread双解决方案）
 date: 2019-05-09 00:00:00
-cover: 
-tags: 
+cover:
+tags:
 	- windows API
 	- Ptherad
-categories: 
+categories:
 ---
 
 > Ps:就是拿自己写的报告
@@ -17,23 +17,23 @@ categories:
 ### 二、实验内容
 
 1.  在Windows 操作系统上，利用 Win32 API 提供的信号量机制，编写应用
-    程序实现生产者——消费者问题。 
+    程序实现生产者——消费者问题。
 2.  在 Linux 操作系统上，利用 Pthread API 提供的信号量机制，编写应用程
-    序实现生产者——消费者问题。 
+    序实现生产者——消费者问题。
 3.  两种环境下，生产者和消费者均作为独立线程，并通过 empty、full、mutex 三个信号量实现对缓冲进行插入与删除。
-4.  通过打印缓冲区中的内容至屏幕，来验证应用程序的正确性。 
+4.  通过打印缓冲区中的内容至屏幕，来验证应用程序的正确性。
 
 ### 三、实验环境
 
 *   windows 10 1903
 
 *   Windows API
-    
+
     *   Visual Studio 2019
-    
+
 *   Pthread API
 
-    *   WIndows Subsystem for Linux 
+    *   WIndows Subsystem for Linux
 
         *   Ubuntu 4.4.0-18362-Microsoft #1-Microsoft Mon Mar 18 12:02:00 PST 2019 x86_64 x86_64 x86_64 GNU/Linux
         *   g++ 7.4.0
@@ -54,7 +54,7 @@ categories:
     * initially
       * full=0
       * empty = n
-      * mutex = 1 
+      * mutex = 1
 
   * Producer Process
 
@@ -70,7 +70,7 @@ categories:
     }while(1);
     ```
 
-    
+
 
   * Consumer Process
 
@@ -85,7 +85,7 @@ categories:
     }while(1);
     ```
 
-    
+
 
 ### 五、主要数据结构及说明
 
@@ -115,7 +115,7 @@ categories:
   * 运行结果
 
     ![](/Others/boundedBuffer/1557370643235.png)
-    
+
     ![](boundedBuffer/1557370643235.png)
 
 * Pthread API
@@ -127,9 +127,9 @@ categories:
   ![](boundedBuffer/1557377842189.png)
 
   * 运行结果
-  
+
     ![](/Others/boundedBuffer/1557377960491.png)
-    
+
     ![](boundedBuffer/1557377960491.png)
 
 ### 七、实验体会
@@ -159,15 +159,15 @@ categories:
     #include <iostream>
     #include <stdlib.h>
     #include <time.h>
-    
+
     constexpr unsigned BUFFER = 10;
-    
+
     HANDLE empty;
     HANDLE full;
     HANDLE mutex;
     int in = 0, out = 0;
     int buffer[BUFFER];
-    
+
     void print()
     {
     	for (int i = 0; i < BUFFER; ++i)
@@ -208,7 +208,7 @@ categories:
     	} while (true);
     	return 0L;
     }
-    
+
     int main()
     {
     	srand((unsigned)time);
@@ -242,15 +242,15 @@ categories:
     #include <unistd.h>
     #include <semaphore.h>
     #include <time.h>
-    
+
     const int BUFFER = 10;
-    
+
     sem_t empty, full;
     pthread_mutex_t mutex;
     int in = 0;
     int out = 0;
     int buffer[BUFFER];
-    
+
     void print()
     {
     	for (int i = 0; i < BUFFER; ++i)
@@ -312,5 +312,3 @@ categories:
     	return 0;
     }
     ```
-
-    
