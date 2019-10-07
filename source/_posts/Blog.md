@@ -1,6 +1,6 @@
 ---
 title: Hanyuu's tech blog.
-date: 2333-03-03 00:00:00
+date: 2018-01-01 00:00:00
 tags: techlog
 ---
 [![Repository](https://img.shields.io/github/downloads/atom/atom/total.svg)](https://github.com/HanyuuFurude/TechBlog/archive/master.zip)
@@ -107,7 +107,7 @@ tags: techlog
 # Privacy Statement:
 	We do not collect any of your data and do not leave you cookies, nor do I count, record your IP address, browse the length of time, link clicks and other information. However, this does not mean that third parties do not collect your browsing history and other data. If you do not want to be collected by a third party this information, please do the relevant protective measures.
 	Continue browsing as you agree to this agreement.
-	
+
 	 Wish you a pleasant visit~
 
 By:Hanyuu
