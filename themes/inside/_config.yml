@@ -100,6 +100,7 @@ menu:
   # Links: /links
   Categories: /categories
   Tags: /tags
+  LICENSE: /license
   Github: https://github.com/HanyuuFurude
 
 # Social media URL
@@ -129,13 +130,13 @@ sns:
 # Sidebar footer copyright info
 footer:
   # Set to false to hide.
-  copyright: '&copy; 2019 <a href="">Hanyuu Furude</a><br>CC BY-NC-ND 4.0'
+  copyright: '&copy; 2019 <a href="">Hanyuu Furude</a><br>CC BY 4.0'
 
   # Set to false to hide Hexo link.
   # powered: false
 
   # Set to false to hide theme link.
-  # theme: false
+  theme: true
 
   # Custom text.
   # custom: Hosted by <a target="_blank" rel="external nofollow"
@@ -249,7 +250,7 @@ toc:
 # Reward
 reward:
   # Text which shows at the top.
-  # text: Buy me a cup of coffee ☕.
+  # text: Buy me a cup of coffee â˜•.
 
   # Payment Methods
   # qrcode, url and text must be set at least one
@@ -266,20 +267,21 @@ reward:
 # It is possible to use front matter `copyright` to override this setting.
 copyright:
   # Display author, default to `true`
-  # author: true
+  author: true
 
   # Display link, default to `true`
-  # link: false
+  link: true
 
   # license: Attribution-NonCommercial-NoDerivatives 4.0 International
   #   (<a href=\"https://creativecommons.org/licenses/by-nc-sa/4.0/\"
   #   rel=\"external nofollow\" target=\"_blank\">CC BY-NC-ND 4.0</a>)
+  license: <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a>本作品采用<a rel="license" href="http://creativecommons.org/licenses/by/4.0/">知识共享署名 4.0 国际许可协议</a>进行许可。
 
   # Display published date, default to `false`
-  # published: false
+  published: true
 
   # Display updated date, default to `false`
-  # updated: false
+  updated: true
 
   # Custom text, override above settings
   # custom: my copyright
