@@ -1,14 +1,12 @@
 ---
 title: 工具链和工具索引
 date: 2019-01-30 00:00:00
-tags: techlog
+tags: 
+- outer link
 ---
-# Blog & more
-
-* [Message Board留言板](https://github.com/HanyuuFurude/HanyuuFurude.github.io/issues)
-* [hanyuu](hanyuu.ml)
 # Tech guide
 ## Coding
+
 * [leetcode](leetcode.com)
 ## Cpp online complier
 
