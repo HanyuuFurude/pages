@@ -14,7 +14,7 @@ categories:
 
 # Chapter 2 Language & Syntax Description
 
-## Grammar & Language
+## Language & syntax description
 
 >   1.  Alphabet
 >
@@ -80,5 +80,49 @@ categories:
       * Every production in P is of the form $A\rightarrow\beta$ where $A\in V_N,\beta\in V^*$
     * 3-type grammar (Regular grammar, right-linear grammar or left-linear grammar)
       * Every production in P is of the form $A\rightarrow\alpha B,A\rightarrow\alpha$, or $A\rightarrow B\alpha$,$A\rightarrow\alpha$,where $A$,$B\in V_N,\alpha\in V_T^*$
+* Grammar Simplification
+  * delete productions like $P\rightarrow P$
+  * delete productions who can not be used in the derivations
+  * delete productions who can not derive a terminal string
+* Construct context-free grammar without ε-production
+  * it should follow conditions as followings
+    * If there is the production S→ε of the form in P, S should not appear in right-side of any production, where S is the start symbol of the grammar;
+    * There are no other ε-productions in P
+  * How to construct
+    * $G=(V_N,V_T,P,S)\rightarrow G'=(V'_N,V'_T,P',S')$
+    * find out all non-terminal symbols that can derive ε after some steps, and put them into the set $V_0$
+    *   construct the P’s set of productions of G’ as following steps:
+      1. If an symbol in $V_0$ appears in the right side of a production, change the production into two production respectively; put the new productions into P
+      2. put the productions relating to the symbol into P’ except for ε-production relating to the symbol
+      3. if there exists the production of the form $S\rightarrow \epsilon$ in P,change the production into $S’\rightarrow \epsilon |S$ and put them into  $P’$,let $S’$ be the start symbol of $G’$, let $V’_N=V_N\cup \{S'\}$
+* Syntax tree and ambiguity of a grammar
+  * Basic terms in a syntax tree
+    * Sub-tree
+    * Pruning sub-tree
+    * Sentential form
+
+# Chapter 3 Lexical analysis
+
+## Approaches to implement a lexical analyzer
+
+* Simple approach
+
+  * Construct a diagram that illustrates the structure of the tokens of the source language , and then to hand-translate the diagram into a program for finding tokens
+
+    >  Efficient lexical analyzers can be produced in this manner
+
+* Pattern-directed programming approach
+
+  * Pattern Matching technique
+
+  * Specify and design program that execute actions triggered by patterns in strings
+
+  * Introduce a pattern-action language called Lex for specifying lexical analyzers
+
+    - Patterns are specified by regular expressions
+
+    - A compiler for Lex can generate an efficient finite automation recognizer for the regular expressions
+
+
 
 🚧under construction🚧
