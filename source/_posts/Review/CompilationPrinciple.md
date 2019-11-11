@@ -120,9 +120,61 @@ categories:
   * Introduce a pattern-action language called Lex for specifying lexical analyzers
 
     - Patterns are specified by regular expressions
+- A compiler for Lex can generate an efficient finite automation recognizer for the regular expressions
+  
+* First phase of a compiler
 
-    - A compiler for Lex can generate an efficient finite automation recognizer for the regular expressions
+  1. Main task
 
+     * To read the input characters 
+     * To produce a sequence of tokens used by the parser for syntax analysis
+     * As an assistant of parser
 
+  2. Interaction of lexical analyzer with parser
+
+     ![image-20191112003646409](/CompilationPrinciple/image-20191112003646409.png)
+
+     
+
+3. 、Processes in lexical analyzers
+
+   *　Scanning
+     *　Pre-processing
+       * Strip out comments and white space
+       * Macro functions
+   *　Correlating error messages from compiler with source program
+     *　A line number can be associated with an error message
+   *　Lexical analysis
+
+4. Terms of the lexical analyzer
+
+   1. Token 
+      * Types of words in source program
+      * Keywords, operators, identifiers, constants, literal strings, punctuation symbols(such as commas,semicolons)
+   2. Lexeme
+      1. Actual words in source program
+   3. Pattern
+      1. A rule describing the set of lexemes that can represent a particular token in source program
+      2. **Relation** {<.<=,>,>=,==,<>}
+
+5. Attributes for Token
+
+   1. A pointer to the symbol-table entry in which the information about the token is kept
+
+   >  E.g E=M*C**2
+
+    <**id**, pointer to symbol-table entry for E>
+
+    <**assign_op**,>
+
+   <**id**, pointer to symbol-table entry for M>
+
+   <**multi_op**,>
+
+   <**id**, pointer to symbol-table entry for C>
+
+   <**exp_op**,>
+
+   <**num**,integer value 2>
 
 🚧under construction🚧
