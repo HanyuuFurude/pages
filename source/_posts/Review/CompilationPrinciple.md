@@ -176,5 +176,18 @@ categories:
    <**exp_op**,>
 
    <**num**,integer value 2>
+   
+6. Lexical Errors
+
+    *   Deleting an extraneous character
+    *   Inserting a missing character
+    *   Replacing an incorrect character by a correct character
+    *   Transposing two adjacent characters(such as , fi=>if)
+    *   Pre-scanning 
+
+7.  Input Buffering
+    *   Two-buffer input scheme to look ahead on the input and identify tokens
+    *   Buffer pairs
+    *   Sentinels(Guards)
 
 🚧under construction🚧
