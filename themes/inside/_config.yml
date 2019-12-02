@@ -101,7 +101,7 @@ menu:
   Categories: /categories
   Tags: /tags
   LICENSE: /license
-  Github: https://github.com/HanyuuFurude
+  Github: https://github.com/HanyuuLu
 
 # Social media URL
 # Try to sort by changing the order of the keys
@@ -111,8 +111,8 @@ sns:
   # If you use hexo-generator-feed, `sns.feed` can be left blank
   # and the theme will try to get `hexo.config.feed.path`.
   feed:
-  github: https://github.com/HanyuuFurude
-  twitter:
+  github: https://github.com/HanyuuLu
+  twitter: https://twitter.com/LuHanyuu
   facebook:
   instagram:
   tumblr:
@@ -130,7 +130,7 @@ sns:
 # Sidebar footer copyright info
 footer:
   # Set to false to hide.
-  copyright: '&copy; 2019 <a href="">Hanyuu Furude</a><br>CC BY 4.0'
+  copyright: '&copy; 2019 <a href="">HanyuuLu</a><br>CC BY 4.0'
 
   # Set to false to hide Hexo link.
   # powered: false
