@@ -7,6 +7,7 @@ tags:
 	- thread
 	- Banker's Algorithms
 categories:
+	- course
 ---
 
 >  Ps:就是拿自己写的报告
