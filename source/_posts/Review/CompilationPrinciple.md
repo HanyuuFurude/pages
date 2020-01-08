@@ -34,7 +34,7 @@ categories:
 >   >
 >   >    AB = $\{\alpha\beta|\alpha\in A\ and\ \beta \in B\}$
 >   >
->   >    $A^0=\{\epsilon\}$
+>   >    $A^0=\{\varepsilon\}$
 >   >
 >   > 2. Closure
 >   >
@@ -74,8 +74,8 @@ categories:
     * 0-type grammar (Phrase grammar or grammar without limitation)
       * to any production $\alpha\rightarrow\beta$ in P $(\alpha\in V^+,\beta\in V^*)$ ,there is at least  a non-terminal symbol in $\alpha$
     * 1-type grammar (context-sensitive grammar or length-added grammar)
-      * to any production $\alpha\rightarrow\beta$ in P, there is the limitation of $|\beta|\ge|\alpha|$ **expect for $S\rightarrow\epsilon$,if $S\rightarrow\epsilon$, S can not appear in the right side for any production.
-      * for any production $\alpha\rightarrow\beta$ in P, $\alpha A\beta\rightarrow\alpha\gamma\beta\ (\alpha,\beta\in V^*)$ expect for $S\rightarrow\epsilon$
+      * to any production $\alpha\rightarrow\beta$ in P, there is the limitation of $|\beta|\ge|\alpha|$ **expect for $S\rightarrow\varepsilon$,if $S\rightarrow\varepsilon$, S can not appear in the right side for any production.
+      * for any production $\alpha\rightarrow\beta$ in P, $\alpha A\beta\rightarrow\alpha\gamma\beta\ (\alpha,\beta\in V^*)$ expect for $S\rightarrow\varepsilon$
     * 2-type grammar (context-free grammar)
       * Every production in P is of the form $A\rightarrow\beta$ where $A\in V_N,\beta\in V^*$
     * 3-type grammar (Regular grammar, right-linear grammar or left-linear grammar)
@@ -94,7 +94,7 @@ categories:
     *   construct the P’s set of productions of G’ as following steps:
       1. If an symbol in $V_0$ appears in the right side of a production, change the production into two production respectively; put the new productions into P
       2. put the productions relating to the symbol into P’ except for ε-production relating to the symbol
-      3. if there exists the production of the form $S\rightarrow \epsilon$ in P,change the production into $S’\rightarrow \epsilon |S$ and put them into  $P’$,let $S’$ be the start symbol of $G’$, let $V’_N=V_N\cup \{S'\}$
+      3. if there exists the production of the form $S\rightarrow \varepsilon$ in P,change the production into $S’\rightarrow \varepsilon |S$ and put them into  $P’$,let $S’$ be the start symbol of $G’$, let $V’_N=V_N\cup \{S'\}$
 * Syntax tree and ambiguity of a grammar
   * Basic terms in a syntax tree
     * Sub-tree
@@ -121,7 +121,9 @@ categories:
 
     - Patterns are specified by regular expressions
 - A compiler for Lex can generate an efficient finite automation recognizer for the regular expressions
-  
+
+## The role of the lexical analyzer
+
 * First phase of a compiler
 
   1. Main task
@@ -190,4 +192,221 @@ categories:
     *   Buffer pairs
     *   Sentinels(Guards)
 
+## Specification of tokens
+
+1. Regular definition of tokens
+   1. regular expression (RE)
+2. regular language`L(r)`
+3. rule of regular expression over alphabet $\Sigma$
+   1. $\varepsilon \rightarrow \{\varepsilon \}$
+   2. $\alpha|\beta$
+   3. $\alpha \beta$
+   4. $\alpha*$
+   5. $\alpha+$
+   6. $\alpha ?$
+   7. $[a-z]$
+
+## Recognition of tokens
+
+1. task of recognition of token in a lexical analyzer
+
+   1. Isolate the lexeme for the next token in the input buffer
+
+   2. produce output pair like <id,pointer to table entry>
+
+      >A example translation table
+      >
+      >| RE   | Token | Attribute-value        |
+      >| ---- | ----- | ---------------------- |
+      >| if   | if    | -                      |
+      >| id   | id    | Pointer to table entry |
+      >| <    | relop | LT                     |
+
+   3.  method to recognition of token
+
+      * Transition diagram(Stylized flowchart)
+
+        ![image-20200108222428204](CompilationPrinciple/image-20200108222428204.png)
+
+        * each state gets a segment of code
+        * use nextchar() to read a character and move to next state
+
+2. FA ( Finite Automation )
+
+   1. Deterministic or non-deterministic FA
+
+      1. ＮFA contains more than one transition out of a state may possible on the same input symbol while DFA not.
+
+   2. DFA
+
+      1. quintuple $M(S,\Sigma,move,s_0,F)$
+
+         * $S$: a set of states
+
+         * $\Sigma$: the input symbol alphabet
+
+         * $move$: a transition function, mapping from $S\times \Sigma$ to $S$, $move(s,a)=S’$
+
+         * $s_0$: the start state
+
+         * $F$: a set of states $F$ distinguished as accepting states
+
+           > $F\subseteq S,s_0 \in S$
+
+      2. note
+
+         1. no state has an $\varepsilon$
+         2. for each state s and input symbol a, there is at most one edge labeled a leaving s
+         3. transition graph are used to describe a FA
+         4. A DFA accepts an input string x if and only if there is some path in the transition graph from start state to some accepting state
+
+   3. NFA
+
+      1. quintuple $M(S,\Sigma,move,s_0,F)$
+
+         * $S$: a set of states
+
+         * $\Sigma$: the input symbol alphabet
+
+         * $move$: a transition function, mapping from $S\times \Sigma$ to $S$, $move(s,a)=2^S$
+
+         * $s_0$: the start state
+
+         * $F$: a set of states $F$ distinguished as accepting states
+
+           > $2^S\subseteq S, F\subseteq S,s_0 \in S$
+
+      2. note
+
+         1. $\epsilon$ is a legal input symbol
+
+   4. Convert of an NFA to a DFA
+
+      >  avoid ambiguity
+
+      * Obtain ε-closure(T)
+
+      * push all states in T onto stack
+
+      * initialize ε-closure(T) to T;
+
+        > while stack is not empty do{
+        >
+        > ​	pop the top element of the stack into t;
+        >
+        > ​	for each state u with an edge from t to u labeled ε do{
+        >
+        > ​		if u is not in ε-closure(T){
+        >
+        > ​			add u to ε-closure(T)
+        >
+        > ​			push u into stack
+        >
+        > ​		}
+        >
+        > ​	}
+        >
+        > }
+
+      * Input
+        
+      * 	NFA $N = (S,\Sigma,move,S_0,Z)$
+        
+      *   Output
+      
+          * 	DFA $D = (Q,\Sigma,\delta,I_0,F)$
+      
+      *   Subset construciton
+      
+        1. $I_0 = \epsilon-clousure(S_0),I_0\in Q$
+        2.
+        $$
+        foreach\ I_i,I_i \in Q \
+        \ let I_t = \epsilon-clousure(move(I_i,a) \
+        \ if\ I_t\notin Q\ then\ put\ I_t\ into Q
+        $$
+
+        3. repeat step2 until there is no new state to put into $Q$
+        
+        4. $let F = \{I|I\in Q,I \cap Z<>\Phi\}$
+        
+           ![image-20200108231512106](CompilationPrinciple/image-20200108231512106.png)
+        
+           ![image-20200108231533717](CompilationPrinciple/image-20200108231533717.png)
+   
+   3. minimizing the number of states of a DNA
+   
+      * Input
+   
+        * DFA $M = \{S,\Sigma,move,s_0,F\}$
+   
+      * Output
+   
+        * DFA $M'$ accepting the same language as M and having as few states as possible
+   
+      * Algorithm
+   
+        1. Construct an initial partition ∏ of the set of states with two groups: the accepting states *F* and the non-accepting states *S-F.* ∏0＝{I01,I02}
+        2. For each group *I* of *∏**i* ,partition *I* into subgroups such that two states *s* and *t* of *I* are in the same subgroup if and only if for all input symbols *a*, states *s* and *t* have transitions on *a* to states in the same group of *∏**i* ; replace *I* in *∏**i+1_*by the set of subgroups formed.
+        3. If *∏**i+1* =*∏**i* ,let *∏**final* =*∏**i+1* and continue with step (4). Otherwise,repeat step (2) with *∏**i+1* 
+        4. Choose one state in each group of the partition *∏**final* as the representative for that group. The representatives will be the states of the reduced DFA M’. Let *s* and *t* be representative states for *s*’s and *t*’s group respectively, and suppose on input *a* there is a transition of *M* from *s* to *t*. Then *M’* has a transition from *s* to *t* on *a*.
+        5. If M’ has a dead state(a state that is not accepting and that has transitions to itself on all input symbols),then remove it. Also remove any states not reachable from the start state.
+   
+        ![image-20200108232638798](CompilationPrinciple/image-20200108232638798.png)
+   
+        ![image-20200108232649557](CompilationPrinciple/image-20200108232649557.png)
+   
+        ![image-20200108232657587](CompilationPrinciple/image-20200108232657587.png)
+   
+        ![image-20200108232705807](CompilationPrinciple/image-20200108232705807.png)
+   
+   4. RE to NFA
+   
+      * Method
+        * Parse r into its constituent sub-expressions
+        * ε
+          * ![image-20200108233201305](CompilationPrinciple/image-20200108233201305.png)
+        * $a\in \Sigma$
+          * ![image-20200108233255716](CompilationPrinciple/image-20200108233255716.png)
+        * ![image-20200108233320548](CompilationPrinciple/image-20200108233320548.png)
+   
+   5. FA to RE
+   
+   6. Regular Grammar to NFA (Right linear grammar to FA)
+   
+      * Input $G = (V_N,V_T,P,S)$
+   
+      * Output FA $M = (Q,\Sigma,move,q_0,Z)$
+   
+      * Method
+   
+        * Consider each non-terminal symbol in G as a state, and add a new state T as an accepting state.
+        * Let $Q=V_N\cup\{T\} , S ＝ V_T , q_0 ＝S$; if there is the production $S\rightarrow \varepsilon$, then $Z=\{S,T\}, else Z=\{T\}$ 
+        * For the productions similar as A1 → aA2，construct move(A1,a)= A2
+        * For the productions similar as A1 → a, construct move(A1,a)= T
+        * For each *a* in Σ, move(T,a)=ψ, that means the accepting states do not recognize any terminal symbol.
+   
+        ![image-20200108234417016](CompilationPrinciple/image-20200108234417016.png)
+   
+        ![image-20200108234702800](CompilationPrinciple/image-20200108234702800.png)
+   
+   7. FA to Right-linear grammar
+   
+      * Input $M=(S,\Sigma,f,s_0,Z)$
+   
+      * Output $R_g = (V_N,V_T,P,s_0)$
+   
+      * Method
+   
+        * if $s_0\notin Z$
+   
+          * For the mapping $f(A_i,a)=A_j$ in M $A_i\rightarrow aA_j$
+   
+        * if $s_0\in Z$
+   
+          * add a new production $A_i\rightarrow a$,$A_i=\rightarrow a|aA_j$
+   
+            
+
 🚧under construction🚧
+
