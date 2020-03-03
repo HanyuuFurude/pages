@@ -1,4 +1,2 @@
-# blog source
- This is the source for my github.io pages
+# This repository has been migrated to [HanyuuLu.github.io](https://hanyuuLu.github.io)  and is no longer updated.
 
- > [HanyuuLu.github.io](https://hanyuuLu.github.io)
